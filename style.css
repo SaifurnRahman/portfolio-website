@@ -173,3 +173,26 @@ main{
     text-align: center;
     margin-bottom: 50px;
 }
+
+.hide {
+    display: none;
+}
+
+@media screen and (max-width:576px){
+    .banner, .nav, .about-items, .skill-container, .resume-container{
+        flex-direction: column;
+        margin: 20px;
+    }
+    .banner .image{
+        width: 100%;
+    }
+
+    header{
+        background-image: none;
+    }
+
+    .about{
+        padding: 20px;
+    }
+    
+}
