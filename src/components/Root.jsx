@@ -8,6 +8,8 @@ import ToolCard from './ToolCard';
 import FavoriteTools from './ToolCard';
 import Marquee from './Marquee';
 import ContactSection from './ContactSection';
+import TestimonialsSection from './TestimonialsSection';
+import ServicesSection from './ServicesSection';
 
 const Root = () => {
     return (
@@ -18,8 +20,14 @@ const Root = () => {
             <div id='aboutme'>
                 <About></About>
             </div>
+            <div id='services'>
+                <ServicesSection></ServicesSection>
+            </div>
             <FavoriteTools></FavoriteTools>
             <Marquee></Marquee>
+            <div id='testimonials'>
+                <TestimonialsSection></TestimonialsSection>
+            </div>
             <div id='letstalk'>
                 <ContactSection></ContactSection>
             </div>

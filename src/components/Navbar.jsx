@@ -97,7 +97,7 @@ const Navbar = () => {
               <FaRegSun size={20} />
             </button>
             <button className="bg-violet-500 hover:bg-violet-400 text-black font-semibold px-6 py-2 rounded-full transition">
-              Let's Talk
+              <a href="#letstalk">Let's Talk</a>
             </button>
           </div>
         </div>

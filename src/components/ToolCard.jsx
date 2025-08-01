@@ -1,5 +1,6 @@
 import React from "react";
 import CountUp from "react-countup";
+import { motion } from "framer-motion";
 import {
   SiAdobephotoshop,
   SiAdobeillustrator,
@@ -48,11 +49,28 @@ const tools = [
   },
 ];
 
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const card = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
+
 const ToolCard = ({ icon, name, percent }) => (
-  <div className="bg-[#18181b] rounded-2xl p-5 flex flex-col justify-between shadow-lg relative min-w-[150px]">
+  <motion.div
+    variants={card}
+    className="bg-[#18181b] rounded-2xl p-5 flex flex-col justify-between shadow-lg relative min-w-[150px]"
+  >
     {/* Percent badge */}
     <span className="absolute top-3 right-3 bg-violet-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-      <CountUp end={percent} duration={70} />%
+      <CountUp end={percent} duration={1.5} />%
     </span>
     {/* Icon and name */}
     <div className="flex items-center space-x-4 mb-6">
@@ -66,7 +84,7 @@ const ToolCard = ({ icon, name, percent }) => (
         style={{ width: `${percent}%` }}
       ></div>
     </div>
-  </div>
+  </motion.div>
 );
 
 const FavoriteTools = () => (
@@ -83,12 +101,18 @@ const FavoriteTools = () => (
         Behind My Designs
       </h3>
     </div>
-    {/* Tools Grid */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+    {/* Tools Grid with Motion */}
+    <motion.div
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+    >
       {tools.map((tool) => (
         <ToolCard key={tool.name} {...tool} />
       ))}
-    </div>
+    </motion.div>
   </section>
 );
 

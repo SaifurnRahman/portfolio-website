@@ -13,11 +13,11 @@ const Marquee = () => {
   const marqueeItems = [...items, ...items];
 
   return (
-    <div className="w-full bg-violet-500 overflow-hidden py-3">
+    <div className="w-full bg-violet-500 overflow-hidden py-3 -rotate-3 my-12">
       <div
         className="flex whitespace-nowrap animate-marquee"
         style={{
-          animation: "marquee 15s linear infinite"
+          animation: "marquee 10s linear infinite"
         }}
       >
         {marqueeItems.map((item, idx) => (
