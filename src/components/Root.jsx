@@ -10,6 +10,8 @@ import Marquee from './Marquee';
 import ContactSection from './ContactSection';
 import TestimonialsSection from './TestimonialsSection';
 import ServicesSection from './ServicesSection';
+import EducationWork from './EducationWork';
+import WorkSample from './WorkSample';
 
 const Root = () => {
     return (
@@ -25,12 +27,25 @@ const Root = () => {
             </div>
             <FavoriteTools></FavoriteTools>
             <Marquee></Marquee>
+
+            <div>
+                <EducationWork></EducationWork>
+            </div>
+
             <div id='testimonials'>
                 <TestimonialsSection></TestimonialsSection>
             </div>
+
+            <div>
+                <WorkSample></WorkSample>
+            </div>
+
+
+
             <div id='letstalk'>
                 <ContactSection></ContactSection>
             </div>
+             
              <Outlet></Outlet>
             <Footer></Footer>
         </div>

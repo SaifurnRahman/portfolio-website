@@ -87,11 +87,11 @@ const ContactSection = () => (
           <div className="bg-violet-500 rounded-xl p-4 flex flex-col items-center">
             <span className="text-black font-semibold mb-2">Stay Connected</span>
             <div className="flex space-x-4">
-              <a href="#" className="text-black hover:text-white text-2xl"><FaFacebookF /></a>
+              <a href="https://www.facebook.com/saifchowdhury2002"  className="text-black hover:text-white text-2xl"><FaFacebookF /></a>
               <a href="#" className="text-black hover:text-white text-2xl"><FaTwitter /></a>
-              <a href="#" className="text-black hover:text-white text-2xl"><FaPinterestP /></a>
-              <a href="#" className="text-black hover:text-white text-2xl"><FaInstagram /></a>
-              <a href="3" className="text-black hover:text-white text-2xl"><FaEnvelope /></a>
+              <a href="https://www.pinterest.com/saifur__rahman/" className="text-black hover:text-white text-2xl"><FaPinterestP /></a>
+              <a href="https://www.instagram.com/saif_chowdhury02/" className="text-black hover:text-white text-2xl"><FaInstagram /></a>
+              <a href="chowdhurysaif0987@gmail.com" className="text-black hover:text-white text-2xl"><FaEnvelope /></a>
             </div>
           </div>
         </div>
