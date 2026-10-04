@@ -38,7 +38,7 @@ const Hero = () => {
   }, [currentText, isDeleting, currentRoleIndex, typingSpeed]);
 
   return (
-    <section id="home" className="relative min-h-[calc(100vh-4rem)] bg-[#0c0c0e] text-gray-100 flex items-center overflow-hidden py-16 px-4 sm:px-6 lg:px-8 font-mono">
+    <section id="home" className="relative min-h-4/5] bg-transparent text-gray-100 flex items-center overflow-hidden py-16 px-4 sm:px-6 lg:px-8 font-mono">
       
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-orange-500/10 rounded-full blur-[150px] pointer-events-none" />
