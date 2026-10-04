@@ -61,7 +61,7 @@ const Hero = () => {
             <img 
               src={profile} 
               alt="Saifur Rahman" 
-              className="w-full h-fit object-contain object-bottom filter grayscale contrast-125 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-500 drop-shadow-[0_30px_30px_rgba(0,0,0,0.95)]"
+              className="w-full h-fit object-contain object-bottom filter grayscale-75 contrast-125 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-500 drop-shadow-[0_30px_30px_rgba(0,0,0,0.95)]"
             />
             {/* Subtle bottom fade */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0e] via-transparent to-transparent opacity-50 pointer-events-none" />
