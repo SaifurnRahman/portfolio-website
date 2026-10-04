@@ -1,7 +1,49 @@
-import React from 'react';
-import { FaStar } from "react-icons/fa";
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaQuoteLeft, FaStar, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
+const testimonialsData = [
+  {
+    id: 1,
+    name: "Alex Morgan",
+    role: "Startup Founder",
+    content: "Saifur delivered an exceptional e-commerce platform for us. His attention to design detail, clean code structure, and lightning-fast responsiveness blew our team away.",
+    rating: 5,
+    project: "Shosta Shodai E-Commerce"
+  },
+  {
+    id: 2,
+    name: "Sarah Jenkins",
+    role: "Creative Director",
+    content: "Working with Saifur on our brand identity and custom logo system was seamless. He blends creative design intuition with professional execution effortlessly.",
+    rating: 5,
+    project: "Brand & Logo System"
+  },
+  {
+    id: 3,
+    name: "David K.",
+    role: "Product Manager",
+    content: "Absolute professional on Upwork! Completed our web app project ahead of schedule with top-tier React architecture and beautiful Tailwind styling.",
+    rating: 5,
+    project: "SaaS Analytics Dashboard"
+  },
+  {
+    id: 4,
+    name: "new_brute",
+    role: "HR",
+    content: "Saif is a total gentleman and works really hard. I am very busy and takes a long time for me to make decisions. He was fine with that and extending his delivery date for me, always quick with his adjustments and patient with my thinking time. He also took time to explain to me how I could adjust colors etc myself with Adobe, which meant I didn’t have to have him find the perfect colour combination, I can try those myself! :) I’ll work with him again. He was great FIVE STARS all round.",
+    rating: 5,
+    project: "Marchendise product"
+  },
+  {
+    id: 5,
+    name: "ctcreativemedia.",
+    role: "Executive Manager",
+    content: "Excellent work by Saif! He was patient with me and stayed in constant communication which is super important to me when I hire someone. He has an eye for creativity that can't be found just anywhere. I went with the highest tier he offers and it was worth it. Will work with again!.",
+    rating: 5,
+    project: "Poster"
+  }
+];
 const testimonials = [
   {
     user: "new_brute",
@@ -69,90 +111,156 @@ const testimonials = [
   }
 ];
 
-const MAX_REVIEW_LENGTH = 200; // Adjust as needed
+const TestimonialsSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
-const TestimonialCard = ({ t }) => {
-  const [showMore, setShowMore] = useState(false);
-  const isLong = t.review.length > MAX_REVIEW_LENGTH;
-  const reviewText = showMore ? t.review : t.review.slice(0, MAX_REVIEW_LENGTH);
+  // Auto slide circulating every 5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleNext();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [currentIndex]);
+
+  const handleNext = () => {
+    setDirection(1);
+    setCurrentIndex((prev) => (prev + 1) % testimonialsData.length);
+  };
+
+  const handlePrev = () => {
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length);
+  };
+
+  // 3D Flipping variants
+  const flipVariants = {
+    enter: (dir) => ({
+      rotateY: dir > 0 ? 90 : -90,
+      opacity: 0,
+      scale: 0.9,
+    }),
+    center: {
+      rotateY: 0,
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.6, ease: 'easeOut' }
+    },
+    exit: (dir) => ({
+      rotateY: dir > 0 ? -90 : 90,
+      opacity: 0,
+      scale: 0.9,
+      transition: { duration: 0.4, ease: 'easeIn' }
+    })
+  };
+
+  const current = testimonialsData[currentIndex];
 
   return (
-    <div className="bg-[#18181b] border border-violet-500 rounded-2xl shadow-lg p-6 min-w-[320px] max-w-[400px] mx-4 flex-shrink-0 flex flex-col justify-between h-[310px]">
-      {/* Header */}
-      <div className="flex items-center ">
-        {typeof t.avatar === "string" && t.avatar.startsWith("http") ? (
-          <img src={t.avatar} alt={t.user} className="w-10 h-10 rounded-full object-cover mr-3" />
-        ) : (
-          <div className="w-10 h-10 rounded-full bg-violet-500 flex items-center justify-center text-black font-bold text-xl mr-3">
-            {t.avatar}
+    <section className="relative bg-transparent text-gray-100 py-24 px-4 sm:px-6 lg:px-8 font-mono overflow-hidden">
+      
+      {/* Background Accent Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-orange-500/5 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto w-full relative z-10 space-y-12">
+        
+        {/* Section Header */}
+        <div className="space-y-3 text-center">
+          <div className="inline-flex items-center space-x-2 text-xs text-orange-500 tracking-widest">
+            <span className="w-3 h-0.5 bg-orange-500 inline-block"></span>
+            <span>// CLIENT_FEEDBACK</span>
+            <span className="w-3 h-0.5 bg-orange-500 inline-block"></span>
           </div>
-        )}
-        <div>
-          <div className="text-white font-semibold">{t.user}</div>
-          <div className="text-xs text-gray-400">{t.country}</div>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+            Trusted by <span className="bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text text-transparent">Clients</span>
+          </h2>
         </div>
-      </div>
-      <hr className="border-violet-800 " />
-      {/* Stars and time */}
-      <div className="flex items-center text-violet-500  min-h-[32px]">
-        {Array.from({ length: t.stars }).map((_, i) => (
-          <FaStar key={i} className="inline-block mr-1" />
-        ))}
-        <span className="text-white ml-2 text-sm font-medium">{t.stars}</span>
-        <span className="text-gray-400 ml-4 text-xs">{t.time}</span>
-      </div>
-      {/* Review */}
-      <div className="text-gray-200 text-sm flex-1 min-h-[110px] max-h-[110px] overflow-hidden relative">
-        {reviewText}
-        {!showMore && isLong && (
-          <span>
-            ...{" "}
-            <button
-              className="text-violet-400 underline text-xs"
-              onClick={() => setShowMore(true)}
+
+        {/* Circulating Flipping Carousel Container */}
+        <div className="relative min-h-[300px] flex items-center justify-center perspective-[1000px]">
+          
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={currentIndex}
+              custom={direction}
+              variants={flipVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              style={{ transformStyle: 'preserve-3d' }}
+              className="w-full bg-neutral-950/80 border border-neutral-800/90 rounded-3xl p-8 sm:p-10 backdrop-blur-md shadow-2xl relative space-y-6"
             >
-              See more
+              {/* Top Row: Quote Icon & Stars */}
+              <div className="flex items-center justify-between">
+                <div className="p-3 bg-orange-500/10 border border-orange-500/30 rounded-xl text-orange-500">
+                  <FaQuoteLeft size={20} />
+                </div>
+                <div className="flex items-center space-x-1 text-amber-400">
+                  {[...Array(current.rating)].map((_, i) => (
+                    <FaStar key={i} size={14} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Feedback Content */}
+              <p className="text-gray-300 text-sm sm:text-base leading-relaxed italic">
+                "{current.content}"
+              </p>
+
+              {/* Author & Project Info */}
+              <div className="pt-4 border-t border-neutral-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                  <h4 className="text-white font-bold text-base">{current.name}</h4>
+                  <p className="text-xs text-neutral-400">{current.role}</p>
+                </div>
+                <span className="text-xs px-3 py-1 bg-neutral-900 border border-neutral-800 text-orange-400 rounded-lg">
+                  // {current.project}
+                </span>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+        </div>
+
+        {/* Controls: Manual Next / Prev & Indicators */}
+        <div className="flex items-center justify-between pt-4">
+          <div className="flex items-center space-x-2">
+            {testimonialsData.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  setDirection(idx > currentIndex ? 1 : -1);
+                  setCurrentIndex(idx);
+                }}
+                className={`h-2 rounded-full transition-all ${
+                  currentIndex === idx ? 'w-8 bg-orange-500' : 'w-2 bg-neutral-800 hover:bg-neutral-700'
+                }`}
+                title={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+
+          <div className="flex items-center space-x-3">
+            <button
+              onClick={handlePrev}
+              className="p-3 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-orange-500/50 text-gray-300 hover:text-orange-400 transition-all"
+              title="Previous feedback"
+            >
+              <FaChevronLeft size={14} />
             </button>
-          </span>
-        )}
-        {showMore && isLong && (
-          <button
-            className="text-violet-400 underline text-xs ml-2"
-            onClick={() => setShowMore(false)}
-          >
-            See less
-          </button>
-        )}
+            <button
+              onClick={handleNext}
+              className="p-3 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-orange-500/50 text-gray-300 hover:text-orange-400 transition-all"
+              title="Next feedback"
+            >
+              <FaChevronRight size={14} />
+            </button>
+          </div>
+        </div>
+
       </div>
-    </div>
+    </section>
   );
 };
-
-const TestimonialsSection = () => (
-  <section className="w-full bg-black py-16 px-4">
-    <div className="text-center mb-10">
-      <div className="inline-block px-4 py-1 border-2 border-violet-500 rounded-md text-white text-sm mb-3">
-        Client Testimonials
-      </div>
-      <h2 className="text-2xl md:text-4xl font-bold text-white mb-1">
-        What My <span className="text-violet-500">Clients Are Saying</span>
-      </h2>
-    </div>
-    {/* Carousel */}
-    <div className="relative overflow-x-hidden">
-      <div
-        className="flex items-stretch"
-        style={{
-          animation: "slide 20s linear infinite"
-        }}
-      >
-        {[...testimonials, ...testimonials].map((t, idx) => (
-          <TestimonialCard t={t} key={idx} />
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
 
 export default TestimonialsSection;

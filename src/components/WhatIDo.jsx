@@ -32,7 +32,7 @@ const services = [
 
 const WhatIDo = () => {
   return (
-    <section id="services" className="relative bg-[#0c0c0e] text-gray-100 py-24 px-4 sm:px-6 lg:px-8 font-mono overflow-hidden">
+    <section id="services" className="relative bg-[#0c0c0e]/20 text-gray-100 py-24 px-4 sm:px-6 lg:px-8 font-mono overflow-hidden">
       
       {/* Background Accent Glow */}
       <div className="absolute top-1/3 right-10 w-96 h-96 bg-orange-500/5 rounded-full blur-[120px] pointer-events-none" />

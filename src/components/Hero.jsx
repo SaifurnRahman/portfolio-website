@@ -38,7 +38,7 @@ const Hero = () => {
   }, [currentText, isDeleting, currentRoleIndex, typingSpeed]);
 
   return (
-    <section id="home" className="relative min-h-4/5] bg-transparent text-gray-100 flex items-center overflow-hidden py-16 px-4 sm:px-6 lg:px-8 font-mono">
+    <section id="home" className="relative min-h-4/5]  bg-[#0c0c0e]/20 text-gray-100 flex items-center overflow-hidden py-16 px-4 sm:px-6 lg:px-8 font-mono">
       
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-orange-500/10 rounded-full blur-[150px] pointer-events-none" />
@@ -61,7 +61,7 @@ const Hero = () => {
             <img 
               src={profile} 
               alt="Saifur Rahman" 
-              className="w-full h-[90%] object-contain object-bottom filter grayscale contrast-125 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-500 drop-shadow-[0_30px_30px_rgba(0,0,0,0.95)]"
+              className="w-full h-fit object-contain object-bottom filter grayscale contrast-125 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-500 drop-shadow-[0_30px_30px_rgba(0,0,0,0.95)]"
             />
             {/* Subtle bottom fade */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0e] via-transparent to-transparent opacity-50 pointer-events-none" />
@@ -73,7 +73,7 @@ const Hero = () => {
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="lg:col-span-4 z-10 space-y-6 text-center lg:text-left bg-[#0c0c0e]/80 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-2xl border border-neutral-800/50 lg:border-none"
+          className="lg:col-span-4 z-10 space-y-6 text-center lg:text-left bg-transparent lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-2xl border border-neutral-800/50 lg:border-none"
         >
           <div className="flex items-center justify-center lg:justify-start space-x-2 text-xs text-orange-500 tracking-widest">
             <span className="w-3 h-0.5 bg-orange-500 inline-block"></span>
@@ -112,7 +112,7 @@ const Hero = () => {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="lg:col-span-4 z-10 space-y-6 text-center lg:text-right bg-[#0c0c0e]/80 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-2xl border border-neutral-800/50 lg:border-none"
+          className="lg:col-span-4 z-10 space-y-6 text-center lg:text-right bg-[#0c0c0e]/60 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-2xl border border-neutral-800/50 lg:border-none"
         >
           {/* About Me Brief */}
           <div className="space-y-1.5">

@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { VscTerminal } from 'react-icons/vsc';
+import { Link } from 'react-router';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
+    { name: 'Home', href: '/#home' },
+    { name: 'About', href: '/aboutSection' },
     { name: 'Skills', href: '#skills' },
     { name: 'Journey', href: '#journey' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Contact', href: '/contactSection' },
   ];
 
   return (
@@ -54,6 +55,7 @@ const Navbar = () => {
           </div>
 
           {/* Action Button */}
+          <Link to={'/contactSection'}>
           <div className="hidden md:block">
             <motion.a
               href="#contact"
@@ -63,7 +65,7 @@ const Navbar = () => {
             >
               Let's Talk
             </motion.a>
-          </div>
+          </div></Link>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
