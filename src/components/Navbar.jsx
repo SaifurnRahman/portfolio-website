@@ -102,6 +102,7 @@ const Navbar = () => {
                 {link.name}
               </motion.a>
             ))}
+            <Link to={'/contactSection'}>
             <div className="pt-2">
               <a
                 href="#contact"
@@ -110,7 +111,7 @@ const Navbar = () => {
               >
                 Let's Talk
               </a>
-            </div>
+            </div></Link>
           </motion.div>
         )}
       </AnimatePresence>
