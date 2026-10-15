@@ -37,7 +37,7 @@ const Hero = () => {
   }, [currentText, isDeleting, currentRoleIndex, typingSpeed, roles]);
 
   return (
-    <section id="home" className="relative min-h-[50vh] bg-[#0c0c0e]/20 text-gray-100 flex items-center overflow-hidden py-10 sm:px-6 lg:px-8 font-mono">
+    <section id="home" className="relative min-h-[50vh] bg-[#0c0c0e]/70 text-gray-100 flex items-center overflow-hidden py-10 sm:px-6 lg:px-8 font-mono">
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-orange-500/10 rounded-full blur-[150px] pointer-events-none" />
 
@@ -142,12 +142,12 @@ const Hero = () => {
             <h3 className="text-xs font-semibold tracking-wider text-orange-500">/* FOLLOW ME */</h3>
             <div className="flex items-center justify-center lg:justify-end space-x-2.5 text-gray-400 pointer-events-auto">
               {[
-                { icon: <FaFacebookF size={13} />, href: '#' },
-                { icon: <FaTwitter size={13} />, href: '#' },
-                { icon: <FaInstagram size={13} />, href: '#' },
-                { icon: <FaLinkedinIn size={13} />, href: '#' },
+                { icon: <FaFacebookF size={13} />, href: 'https://www.facebook.com/saifchowdhury2002' },
+                { icon: <FaTwitter size={13} />, href: 'https://x.com/mdsaifur2002' },
+                { icon: <FaInstagram size={13} />, href: 'https://www.instagram.com/saif_chowdhury02/' },
+                { icon: <FaLinkedinIn size={13} />, href: 'https://www.linkedin.com/in/saifurdevv/' },
                 { icon: <FaYoutube size={13} />, href: '#' },
-                { icon: <FaGithub size={13} />, href: '#' },
+                { icon: <FaGithub size={13} />, href: 'https://github.com/SaifurnRahman' },
               ].map((social, index) => (
                 <motion.a
                   key={index}

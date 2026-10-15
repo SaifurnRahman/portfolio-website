@@ -5,42 +5,42 @@ import { FaGithub, FaExternalLinkAlt, FaFolder } from 'react-icons/fa';
 const projectsData = [
   {
     id: 1,
-    title: "Shosta Shodai E-Commerce",
+    title: "DentalCareBD",
     category: "E-Commerce",
-    description: "A full-featured online retail platform with custom cart management, responsive grid layouts, and smooth user checkout flows.",
-    image: "https://images.unsplash.com/photo-1557821552-17105176674c?q=80&w=1000&auto=format&fit=crop",
+    description: "Find trusted dentists, book appointments, make secure payments and manage your dental treatment from one simple platform.",
+    image: "https://i.postimg.cc/RF0WSbYf/Screenshot-23.png",
     tech: ["React", "Node.js", "Tailwind", "MongoDB"],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://dental-clinic-manage-system.netlify.app/",
+    githubUrl: "https://github.com/SaifurnRahman/Dentel-Clinic-Management-System",
   },
   {
     id: 2,
-    title: "DevPortfolio Terminal",
+    title: "UniCircleBD",
     category: "Web Apps",
-    description: "An immersive developer portfolio featuring custom TypeScript animations, dynamic code backgrounds, and interactive terminals.",
-    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1000&auto=format&fit=crop",
+    description: "The centralized platform to explore campus organizations, track your engagement history, and collaborate on high-impact projects.",
+    image: "https://i.ibb.co.com/Y48Czswv/Screenshot-21.png",
     tech: ["React", "Tailwind CSS", "Framer Motion", "HTML5 Canvas"],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://unicarebd.netlify.app/",
+    githubUrl: "https://github.com/SaifurnRahman/university-club-membership-portal",
   },
   {
     id: 3,
-    title: "Brand & Logo System",
+    title: "Portfolio Site",
     category: "Branding",
-    description: "Custom minimalist corporate branding, typography styling, and bespoke vector logo designs tailored for digital startups.",
+    description: "SaifurHUB delivers cutting-edge digital solutions. From stunning graphic design to powerful web development and strategic brand promotion..",
     image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1000&auto=format&fit=crop",
     tech: ["Illustrator", "Typography", "UI/UX", "Figma"],
-    liveUrl: "#",
+    liveUrl: "https://saifurhub-it-agency-xxqt.bolt.host/",
     githubUrl: "#",
   },
   {
     id: 4,
-    title: "SaaS Analytics Dashboard",
+    title: "NiyogBangla",
     category: "Web Apps",
-    description: "High-performance data visualization interface tracking metrics, sales growth, and real-time customer support inquiries.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
+    description: "NiyogBangla connects you with top employers across Bangladesh. Discover the right opportunities, apply easily, and move forward in your career — all in one place.",
+    image: "https://i.postimg.cc/FHdXjtfJ/Screenshot-24.png",
     tech: ["Next.js", "TypeScript", "Chart.js", "Tailwind"],
-    liveUrl: "#",
+    liveUrl: "https://dragon-news-auth-1c028.web.app/",
     githubUrl: "#",
   },
 ];
@@ -55,7 +55,7 @@ const Projects = () => {
     : projectsData.filter(p => p.category === activeTab);
 
   return (
-    <section id="projects" className="relative  bg-[#0c0c0e]/40 text-gray-100 py-24 px-4 sm:px-6 lg:px-8 font-mono">
+    <section id="projects" className="relative  bg-[#0c0c0e]/70 text-gray-100 py-24 px-4 sm:px-6 lg:px-8 font-mono">
       
       {/* Glow Accent */}
       <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-orange-500/5 rounded-full blur-[140px] pointer-events-none" />

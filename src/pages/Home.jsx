@@ -6,11 +6,13 @@ import Journey from '../components/Journey';
 import TestimonialsSection from '../components/TestimonialsSection';
 import Marquee from '../components/Marquee';
 import SkillsSection from '../components/SkillsSection';
+import About from '../components/About';
 
 const Home = () => {
     return (
         <div id="home">       
             <Hero></Hero>
+            {/* <About></About> */}
             <WhatIDo></WhatIDo>
             
             <Projects></Projects>
