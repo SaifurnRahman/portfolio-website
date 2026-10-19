@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedinIn, FaTwitter, FaInstagram, FaYoutube, FaFacebookF } from 'react-icons/fa';
+import data from '../data/portfolio.json';
+import { Icon } from '../data/icons';
 import { HiArrowRight } from 'react-icons/hi';
 import { FiChevronDown } from 'react-icons/fi';
-import profile from '../assets/profile.png';
+import profileImage from '../assets/profile.png';
+
+const { profile } = data;
+const roles = profile.roles;
 
 const Hero = () => {
-  const roles = ['Web Developer', 'Full Stack Dev', 'Designer'];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -34,7 +37,7 @@ const Hero = () => {
 
     const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
-  }, [currentText, isDeleting, currentRoleIndex, typingSpeed, roles]);
+  }, [currentText, isDeleting, currentRoleIndex, typingSpeed]);
 
   return (
     <section id="home" className="relative min-h-[50vh] bg-[#0c0c0e]/70 text-gray-100 flex items-center overflow-hidden py-10 sm:px-6 lg:px-8 font-mono">
@@ -57,7 +60,7 @@ const Hero = () => {
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-            I'm Saifur, a <br />
+            I'm {profile.shortName}, a <br />
             <span className="bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text text-transparent">
               {currentText}
             </span>
@@ -65,7 +68,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-sm mx-auto lg:mx-0">
-            Passionate designer and developer with 4+ years of experience, collaborating with companies and startups to build modern digital products.
+            {profile.tagline}
           </p>
 
           <div className="pt-2 flex items-center justify-center lg:justify-start">
@@ -99,8 +102,8 @@ const Hero = () => {
               <div className="absolute inset-0 bg-orange-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <img 
-                src={profile}
-                alt="Saifur Rahman" 
+                src={profileImage}
+                alt={profile.name} 
                 className="w-full h-full object-contain object-bottom filter grayscale-75 contrast-125 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-500 drop-shadow-[0_20px_25px_rgba(0,0,0,0.9)]"
               />
             </motion.div>
@@ -111,7 +114,7 @@ const Hero = () => {
           <div className="space-y-1.5 w-full">
             <h3 className="text-xs font-semibold tracking-wider text-orange-500">/* ABOUT ME */</h3>
             <p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-lg mx-auto lg:mx-0 lg:ml-auto">
-              I love solving problems with creative solutions and modern technologies, blending high-end design with clean code.
+              {profile.aboutBrief}
             </p>
             <a
               href="#about"
@@ -126,7 +129,7 @@ const Hero = () => {
           <div className="space-y-1.5 w-full">
             <h3 className="text-xs font-semibold tracking-wider text-orange-500">/* MY WORK */</h3>
             <p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-lg mx-auto lg:mx-0 lg:ml-auto">
-              Explore my latest digital products, responsive web apps, and creative design systems.
+              {profile.workBrief}
             </p>
             <a
               href="#projects"
@@ -141,21 +144,15 @@ const Hero = () => {
           <div className="space-y-2 w-full">
             <h3 className="text-xs font-semibold tracking-wider text-orange-500">/* FOLLOW ME */</h3>
             <div className="flex items-center justify-center lg:justify-end space-x-2.5 text-gray-400 pointer-events-auto">
-              {[
-                { icon: <FaFacebookF size={13} />, href: 'https://www.facebook.com/saifchowdhury2002' },
-                { icon: <FaTwitter size={13} />, href: 'https://x.com/mdsaifur2002' },
-                { icon: <FaInstagram size={13} />, href: 'https://www.instagram.com/saif_chowdhury02/' },
-                { icon: <FaLinkedinIn size={13} />, href: 'https://www.linkedin.com/in/saifurdevv/' },
-                { icon: <FaYoutube size={13} />, href: '#' },
-                { icon: <FaGithub size={13} />, href: 'https://github.com/SaifurnRahman' },
-              ].map((social, index) => (
+              {data.socials.map((social, index) => (
                 <motion.a
                   key={index}
-                  href={social.href}
+                  href={social.url}
+                  title={social.platform}
                   whileHover={{ scale: 1.15, color: '#f97316', backgroundColor: 'rgba(249, 115, 22, 0.1)' }}
                   className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 transition-colors"
                 >
-                  {social.icon}
+                  <Icon name={social.icon} size={13} />
                 </motion.a>
               ))}
             </div>

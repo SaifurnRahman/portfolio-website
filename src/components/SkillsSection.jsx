@@ -1,26 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaGitAlt, FaFigma, FaNodeJs, FaDatabase, FaServer, FaImage, FaPenNib } from 'react-icons/fa';
-import { SiTailwindcss, SiTypescript, SiNextdotjs, SiVite, SiCplusplus, SiWordpress, SiMongodb, SiExpress } from 'react-icons/si';
+import data from '../data/portfolio.json';
+import { Icon } from '../data/icons';
 
-const skillsData = [
-  { name: "React.js", category: "Frontend", icon: <FaReact className="text-cyan-400" size={26} />, level: "Advanced" },
-  { name: "JavaScript (ES6+)", category: "Frontend", icon: <FaJs className="text-yellow-400" size={26} />, level: "Expert" },
-  { name: "Tailwind CSS", category: "Styling", icon: <SiTailwindcss className="text-teal-400" size={26} />, level: "Expert" },
-  { name: "HTML5 / CSS3", category: "Frontend", icon: <FaHtml5 className="text-orange-500" size={26} />, level: "Expert" },
-  { name: "Next.js", category: "Framework", icon: <SiNextdotjs className="text-white" size={26} />, level: "Intermediate" },
-  { name: "TypeScript", category: "Language", icon: <SiTypescript className="text-blue-500" size={26} />, level: "Intermediate" },
-  { name: "Figma / UI-UX", category: "Design", icon: <FaFigma className="text-pink-500" size={26} />, level: "Advanced" },
-  { name: "Adobe Photoshop", category: "Design", icon: <FaImage className="text-blue-400" size={26} />, level: "Advanced" },
-  { name: "Adobe Illustrator", category: "Design", icon: <FaPenNib className="text-orange-400" size={26} />, level: "Advanced" },
-  { name: "Node.js", category: "Backend", icon: <FaNodeJs className="text-green-500" size={26} />, level: "Intermediate" },
-  { name: "Express.js", category: "Backend", icon: <SiExpress className="text-gray-300" size={26} />, level: "Intermediate" },
-  { name: "MongoDB", category: "Backend", icon: <SiMongodb className="text-emerald-500" size={26} />, level: "Intermediate" },
-  { name: "Git & GitHub", category: "Tools", icon: <FaGitAlt className="text-orange-600" size={26} />, level: "Advanced" },
-  { name: "WordPress", category: "CMS", icon: <SiWordpress className="text-sky-600" size={26} />, level: "Advanced" },
-  { name: "C++ Programming", category: "Language", icon: <SiCplusplus className="text-blue-600" size={26} />, level: "Intermediate" },
-  { name: "Vite / Bundlers", category: "Tools", icon: <SiVite className="text-purple-400" size={26} />, level: "Advanced" },
-];
+const skillsData = data.skills;
 
 const SkillsSection = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -28,7 +11,7 @@ const SkillsSection = () => {
   const [isInside, setIsInside] = useState(false);
   const containerRef = useRef(null);
 
-  const categories = ['All', 'Frontend', 'Styling', 'Design', 'Backend', 'Language', 'Tools'];
+  const categories = ['All', ...new Set(skillsData.map(skill => skill.category))];
 
   const filteredSkills = activeFilter === 'All' 
     ? skillsData 
@@ -129,7 +112,7 @@ const SkillsSection = () => {
                 transition={{ duration: 0.4 }}
                 className="p-3 bg-neutral-900 border border-neutral-800 rounded-xl group-hover:border-orange-500/40 group-hover:bg-orange-500/15 transition-colors shadow-inner"
               >
-                {skill.icon}
+                <Icon name={skill.icon} className={skill.color} size={26} />
               </motion.div>
 
               <div className="text-center space-y-1">

@@ -1,0 +1,222 @@
+{
+  "profile": {
+    "name": "Saifur Rahman",
+    "shortName": "Saifur",
+    "brandName": "Saifur",
+    "brandSuffix": ".dev",
+    "roles": ["Web Developer", "Full Stack Dev", "Designer"],
+    "tagline": "Passionate designer and developer with 4+ years of experience, collaborating with companies and startups to build modern digital products.",
+    "aboutBrief": "I love solving problems with creative solutions and modern technologies, blending high-end design with clean code.",
+    "workBrief": "Explore my latest digital products, responsive web apps, and creative design systems.",
+    "footerBio": "Full-stack developer and designer building scalable web solutions, custom interfaces, and clean digital experiences."
+  },
+
+  "contact": {
+    "email": "saifurrahman24to7@gmail.com",
+    "phone": "01822690061",
+    "whatsappNumber": "8801822690061",
+    "intro": "Have a project in mind, a job opportunity, or want to collaborate? Send a message or connect directly below."
+  },
+
+  "socials": [
+    { "platform": "Facebook", "icon": "FaFacebookF", "url": "https://www.facebook.com/saifchowdhury2002" },
+    { "platform": "Twitter", "icon": "FaTwitter", "url": "https://x.com/mdsaifur2002" },
+    { "platform": "Instagram", "icon": "FaInstagram", "url": "https://www.instagram.com/saif_chowdhury02/" },
+    { "platform": "LinkedIn", "icon": "FaLinkedinIn", "url": "https://www.linkedin.com/in/saifurdevv/" },
+    { "platform": "YouTube", "icon": "FaYoutube", "url": "#" },
+    { "platform": "GitHub", "icon": "FaGithub", "url": "https://github.com/SaifurnRahman" }
+  ],
+
+  "navLinks": [
+    { "name": "Home", "href": "/#home" },
+    { "name": "About", "href": "/aboutSection" },
+    { "name": "Skills", "href": "#skills" },
+    { "name": "Journey", "href": "#journey" },
+    { "name": "Projects", "href": "#projects" },
+    { "name": "Contact", "href": "/contactSection" }
+  ],
+
+  "about": {
+    "headline": "Bridging Creativity & Code",
+    "intro": "Hello! I'm **Saifur Rahman**, a multi-disciplinary creator combining professional graphic design artistry with full-stack software development and digital entrepreneurship.",
+    "story": "With a strong background in freelance logo and t-shirt design spanning thousands of successful projects, I transitioned my eye for layout and user experience into writing high-performance web applications. I also run the online business **shosta shodai**, giving me hands-on perspective into digital marketing, customer support, and strategic business operations.",
+    "specialization": "Frontend & Branding",
+    "venture": "Shosta Shodai",
+    "highlights": [
+      {
+        "icon": "FaPalette",
+        "color": "text-orange-500",
+        "title": "Graphic & T-Shirt Design",
+        "description": "Completed thousands of specialized t-shirt designs, custom logos, and branding projects with years of expertise in typography and vector illustration."
+      },
+      {
+        "icon": "FaStore",
+        "color": "text-amber-500",
+        "title": "Online Business Owner",
+        "description": "Founder and operator of the e-commerce venture 'shosta shodai', managing digital operations, sales strategies, and customer scaling."
+      },
+      {
+        "icon": "FaLaptopCode",
+        "color": "text-cyan-400",
+        "title": "Full-Stack & Frontend Dev",
+        "description": "Building responsive, animated web interfaces using React, Tailwind CSS, and modern JavaScript, backed by robust backend and database capabilities."
+      }
+    ]
+  },
+
+  "services": [
+    {
+      "icon": "FaLaptopCode",
+      "title": "Full-Stack Web Dev",
+      "description": "Building scalable, high-performance web applications using modern frameworks like React, Next.js, and Node.js.",
+      "code": "01 // Frontend & Backend"
+    },
+    {
+      "icon": "FaPaintBrush",
+      "title": "UI/UX & Graphic Design",
+      "description": "Crafting intuitive user interfaces, stunning branding materials, and custom t-shirt and logo designs with precision.",
+      "code": "02 // Creative & Branding"
+    },
+    {
+      "icon": "FaMobileAlt",
+      "title": "Responsive Layouts",
+      "description": "Ensuring flawless user experiences across mobile, tablet, and desktop screens with Tailwind CSS and advanced styling.",
+      "code": "03 // Mobile First"
+    },
+    {
+      "icon": "FaServer",
+      "title": "API & System Integration",
+      "description": "Connecting robust database systems, third-party payment gateways, and custom backend APIs smoothly.",
+      "code": "04 // Architecture"
+    }
+  ],
+
+  "projects": [
+    {
+      "id": 1,
+      "title": "DentalCareBD",
+      "category": "E-Commerce",
+      "description": "Find trusted dentists, book appointments, make secure payments and manage your dental treatment from one simple platform.",
+      "image": "https://i.postimg.cc/RF0WSbYf/Screenshot-23.png",
+      "tech": ["React", "Node.js", "Tailwind", "MongoDB"],
+      "liveUrl": "https://dental-clinic-manage-system.netlify.app/",
+      "githubUrl": "https://github.com/SaifurnRahman/Dentel-Clinic-Management-System"
+    },
+    {
+      "id": 2,
+      "title": "UniCircleBD",
+      "category": "Web Apps",
+      "description": "The centralized platform to explore campus organizations, track your engagement history, and collaborate on high-impact projects.",
+      "image": "https://i.ibb.co.com/Y48Czswv/Screenshot-21.png",
+      "tech": ["React", "Tailwind CSS", "Framer Motion", "HTML5 Canvas"],
+      "liveUrl": "https://unicarebd.netlify.app/",
+      "githubUrl": "https://github.com/SaifurnRahman/university-club-membership-portal"
+    },
+    {
+      "id": 3,
+      "title": "Portfolio Site",
+      "category": "Branding",
+      "description": "SaifurHUB delivers cutting-edge digital solutions. From stunning graphic design to powerful web development and strategic brand promotion..",
+      "image": "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1000&auto=format&fit=crop",
+      "tech": ["Illustrator", "Typography", "UI/UX", "Figma"],
+      "liveUrl": "https://saifurhub-it-agency-xxqt.bolt.host/",
+      "githubUrl": "#"
+    },
+    {
+      "id": 4,
+      "title": "NiyogBangla",
+      "category": "Web Apps",
+      "description": "NiyogBangla connects you with top employers across Bangladesh. Discover the right opportunities, apply easily, and move forward in your career — all in one place.",
+      "image": "https://i.postimg.cc/FHdXjtfJ/Screenshot-24.png",
+      "tech": ["Next.js", "TypeScript", "Chart.js", "Tailwind"],
+      "liveUrl": "https://dragon-news-auth-1c028.web.app/",
+      "githubUrl": "#"
+    }
+  ],
+
+  "skills": [
+    { "name": "React.js", "category": "Frontend", "icon": "FaReact", "color": "text-cyan-400", "level": "Advanced" },
+    { "name": "JavaScript (ES6+)", "category": "Frontend", "icon": "FaJs", "color": "text-yellow-400", "level": "Expert" },
+    { "name": "Tailwind CSS", "category": "Styling", "icon": "SiTailwindcss", "color": "text-teal-400", "level": "Expert" },
+    { "name": "HTML5 / CSS3", "category": "Frontend", "icon": "FaHtml5", "color": "text-orange-500", "level": "Expert" },
+    { "name": "Next.js", "category": "Framework", "icon": "SiNextdotjs", "color": "text-white", "level": "Intermediate" },
+    { "name": "TypeScript", "category": "Language", "icon": "SiTypescript", "color": "text-blue-500", "level": "Intermediate" },
+    { "name": "Figma / UI-UX", "category": "Design", "icon": "FaFigma", "color": "text-pink-500", "level": "Advanced" },
+    { "name": "Adobe Photoshop", "category": "Design", "icon": "FaImage", "color": "text-blue-400", "level": "Advanced" },
+    { "name": "Adobe Illustrator", "category": "Design", "icon": "FaPenNib", "color": "text-orange-400", "level": "Advanced" },
+    { "name": "Node.js", "category": "Backend", "icon": "FaNodeJs", "color": "text-green-500", "level": "Intermediate" },
+    { "name": "Express.js", "category": "Backend", "icon": "SiExpress", "color": "text-gray-300", "level": "Intermediate" },
+    { "name": "MongoDB", "category": "Backend", "icon": "SiMongodb", "color": "text-emerald-500", "level": "Intermediate" },
+    { "name": "Git & GitHub", "category": "Tools", "icon": "FaGitAlt", "color": "text-orange-600", "level": "Advanced" },
+    { "name": "WordPress", "category": "CMS", "icon": "SiWordpress", "color": "text-sky-600", "level": "Advanced" },
+    { "name": "C++ Programming", "category": "Language", "icon": "SiCplusplus", "color": "text-blue-600", "level": "Intermediate" },
+    { "name": "Vite / Bundlers", "category": "Tools", "icon": "SiVite", "color": "text-purple-400", "level": "Advanced" }
+  ],
+
+  "experience": [
+    {
+      "role": "Founder & Owner",
+      "company": "SaifurHub",
+      "period": "2025 - Present",
+      "description": "Managing e-commerce operations, digital growth, customer support, and strategic sales negotiation."
+    },
+    {
+      "role": "Freelance Designer & Developer",
+      "company": "Upwork & Fiverr",
+      "period": "2022 - Present",
+      "description": "Delivering thousands of high-end logo designs, custom t-shirt graphics, and responsive web development projects."
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "Computer Science & Engineering",
+      "institution": "Southeast University",
+      "period": "Ongoing",
+      "description": "Focused on modern software development, C++ programming, database management, and web architecture."
+    }
+  ],
+
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Alex Morgan",
+      "role": "Startup Founder",
+      "content": "Saifur delivered an exceptional e-commerce platform for us. His attention to design detail, clean code structure, and lightning-fast responsiveness blew our team away.",
+      "rating": 5,
+      "project": "Shosta Shodai E-Commerce"
+    },
+    {
+      "id": 2,
+      "name": "Sarah Jenkins",
+      "role": "Creative Director",
+      "content": "Working with Saifur on our brand identity and custom logo system was seamless. He blends creative design intuition with professional execution effortlessly.",
+      "rating": 5,
+      "project": "Brand & Logo System"
+    },
+    {
+      "id": 3,
+      "name": "David K.",
+      "role": "Product Manager",
+      "content": "Absolute professional on Upwork! Completed our web app project ahead of schedule with top-tier React architecture and beautiful Tailwind styling.",
+      "rating": 5,
+      "project": "SaaS Analytics Dashboard"
+    },
+    {
+      "id": 4,
+      "name": "new_brute",
+      "role": "HR",
+      "content": "Saif is a total gentleman and works really hard. I am very busy and takes a long time for me to make decisions. He was fine with that and extending his delivery date for me, always quick with his adjustments and patient with my thinking time. He also took time to explain to me how I could adjust colors etc myself with Adobe, which meant I didn’t have to have him find the perfect colour combination, I can try those myself! :) I’ll work with him again. He was great FIVE STARS all round.",
+      "rating": 5,
+      "project": "Marchendise product"
+    },
+    {
+      "id": 5,
+      "name": "ctcreativemedia.",
+      "role": "Executive Manager",
+      "content": "Excellent work by Saif! He was patient with me and stayed in constant communication which is super important to me when I hire someone. He has an eye for creativity that can't be found just anywhere. I went with the highest tier he offers and it was worth it. Will work with again!.",
+      "rating": 5,
+      "project": "Poster"
+    }
+  ]
+}

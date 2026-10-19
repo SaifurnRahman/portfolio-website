@@ -1,26 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaLaptopCode, FaPalette, FaStore, FaGraduationCap, FaRocket, FaCheckCircle } from 'react-icons/fa';
+import data from '../data/portfolio.json';
+import { Icon } from '../data/icons';
+
+const { about } = data;
+
+// Renders **text** inside a paragraph as bold, using the given class.
+const withBold = (text, boldClass) =>
+  text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
+    i % 2 === 1 ? <strong key={i} className={boldClass}>{part}</strong> : part
+  );
 
 const AboutSection = () => {
-  const highlights = [
-    {
-      icon: <FaPalette className="text-orange-500" size={22} />,
-      title: "Graphic & T-Shirt Design",
-      description: "Completed thousands of specialized t-shirt designs, custom logos, and branding projects with years of expertise in typography and vector illustration."
-    },
-    {
-      icon: <FaStore className="text-amber-500" size={22} />,
-      title: "Online Business Owner",
-      description: "Founder and operator of the e-commerce venture 'shosta shodai', managing digital operations, sales strategies, and customer scaling."
-    },
-    {
-      icon: <FaLaptopCode className="text-cyan-400" size={22} />,
-      title: "Full-Stack & Frontend Dev",
-      description: "Building responsive, animated web interfaces using React, Tailwind CSS, and modern JavaScript, backed by robust backend and database capabilities."
-    }
-  ];
-
   return (
     <section id="about" className="relative bg-transparent text-gray-100 py-24 px-4 sm:px-6 lg:px-8 font-mono overflow-hidden">
       
@@ -63,25 +54,25 @@ const AboutSection = () => {
 
             <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center space-x-3">
               <span className="text-orange-500">&gt;</span> 
-              <span>Bridging Creativity & Code</span>
+              <span>{about.headline}</span>
             </h3>
 
             <p className="text-gray-300 text-sm leading-relaxed">
-              Hello! I'm <strong className="text-orange-400">Saifur Rahman</strong>, a multi-disciplinary creator combining professional graphic design artistry with full-stack software development and digital entrepreneurship. 
+              {withBold(about.intro, 'text-orange-400')}
             </p>
 
             <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
-              With a strong background in freelance logo and t-shirt design spanning thousands of successful projects, I transitioned my eye for layout and user experience into writing high-performance web applications. I also run the online business <strong className="text-white">shosta shodai</strong>, giving me hands-on perspective into digital marketing, customer support, and strategic business operations.
+              {withBold(about.story, 'text-white')}
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-4 border-t border-neutral-900">
               <div className="space-y-1">
                 <span className="text-[10px] text-neutral-500">// SPECIALIZATION</span>
-                <p className="text-xs text-white font-bold">Frontend & Branding</p>
+                <p className="text-xs text-white font-bold">{about.specialization}</p>
               </div>
               <div className="space-y-1">
                 <span className="text-[10px] text-neutral-500">// VENTURE</span>
-                <p className="text-xs text-white font-bold">Shosta Shodai</p>
+                <p className="text-xs text-white font-bold">{about.venture}</p>
               </div>
             </div>
           </motion.div>
@@ -94,14 +85,14 @@ const AboutSection = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5 space-y-4"
           >
-            {highlights.map((item, index) => (
+            {about.highlights.map((item, index) => (
               <motion.div 
                 key={index}
                 whileHover={{ scale: 1.02, x: 4 }}
                 className="bg-neutral-950/70 border border-neutral-800 hover:border-orange-500/50 p-5 rounded-2xl backdrop-blur-md transition-all flex items-start space-x-4 shadow-xl"
               >
                 <div className="p-3 bg-neutral-900 border border-neutral-800 rounded-xl shrink-0">
-                  {item.icon}
+                  <Icon name={item.icon} className={item.color} size={22} />
                 </div>
                 <div className="space-y-1">
                   <h4 className="text-white font-bold text-sm">

@@ -1,34 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaLaptopCode, FaPaintBrush, FaMobileAlt, FaServer } from 'react-icons/fa';
+import data from '../data/portfolio.json';
+import { Icon } from '../data/icons';
 import { HiArrowRight } from 'react-icons/hi';
 
-const services = [
-  {
-    icon: <FaLaptopCode size={24} className="text-orange-500" />,
-    title: "Full-Stack Web Dev",
-    description: "Building scalable, high-performance web applications using modern frameworks like React, Next.js, and Node.js.",
-    code: "01 // Frontend & Backend",
-  },
-  {
-    icon: <FaPaintBrush size={24} className="text-orange-500" />,
-    title: "UI/UX & Graphic Design",
-    description: "Crafting intuitive user interfaces, stunning branding materials, and custom t-shirt and logo designs with precision.",
-    code: "02 // Creative & Branding",
-  },
-  {
-    icon: <FaMobileAlt size={24} className="text-orange-500" />,
-    title: "Responsive Layouts",
-    description: "Ensuring flawless user experiences across mobile, tablet, and desktop screens with Tailwind CSS and advanced styling.",
-    code: "03 // Mobile First",
-  },
-  {
-    icon: <FaServer size={24} className="text-orange-500" />,
-    title: "API & System Integration",
-    description: "Connecting robust database systems, third-party payment gateways, and custom backend APIs smoothly.",
-    code: "04 // Architecture",
-  },
-];
+const services = data.services;
 
 const WhatIDo = () => {
   return (
@@ -68,7 +44,7 @@ const WhatIDo = () => {
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="p-3 bg-neutral-800/60 rounded-xl border border-neutral-700/50 group-hover:bg-orange-500/10 transition-colors">
-                    {service.icon}
+                    <Icon name={service.icon} size={24} className="text-orange-500" />
                   </div>
                   <span className="text-xs text-neutral-500 font-semibold">{service.code}</span>
                 </div>

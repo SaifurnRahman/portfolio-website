@@ -1,34 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaBriefcase, FaGraduationCap, FaCalendarAlt } from 'react-icons/fa';
+import data from '../data/portfolio.json';
 
-const journeyData = {
-  experience: [
-    {
-      role: "Founder & Owner",
-      company: "SaifurHub",
-      period: "2025 - Present",
-      description: "Managing e-commerce operations, digital growth, customer support, and strategic sales negotiation.",
-      type: "Experience"
-    },
-    {
-      role: "Freelance Designer & Developer",
-      company: "Upwork & Fiverr",
-      period: "2022 - Present",
-      description: "Delivering thousands of high-end logo designs, custom t-shirt graphics, and responsive web development projects.",
-      type: "Experience"
-    }
-  ],
-  education: [
-    {
-      degree: "Computer Science & Engineering ",
-      institution: "Southeast University",
-      period: "Ongoing",
-      description: "Focused on modern software development, C++ programming, database management, and web architecture.",
-      type: "Education"
-    }
-  ]
-};
+const journeyData = { experience: data.experience, education: data.education };
 
 const Journey = () => {
   return (

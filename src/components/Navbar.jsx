@@ -3,18 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { VscTerminal } from 'react-icons/vsc';
 import { Link } from 'react-router';
+import data from '../data/portfolio.json';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = [
-    { name: 'Home', href: '/#home' },
-    { name: 'About', href: '/aboutSection' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Journey', href: '#journey' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '/contactSection' },
-  ];
+  const navLinks = data.navLinks;
 
   return (
     <motion.nav
@@ -35,7 +29,7 @@ const Navbar = () => {
               <VscTerminal size={22} />
             </div>
             <span className="font-bold text-lg tracking-wide text-white">
-              Saifur<span className="text-orange-500">.dev</span>
+              {data.profile.brandName}<span className="text-orange-500">{data.profile.brandSuffix}</span>
             </span>
           </motion.div>
 

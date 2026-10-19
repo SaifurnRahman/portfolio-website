@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaWhatsapp, FaCopy, FaCheck, FaPaperPlane } from 'react-icons/fa';
+import data from '../data/portfolio.json';
 
 const ContactSection = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [formStatus, setFormStatus] = useState('');
 
-  const email = "saifurrahman24to7@gmail.com";
-  const phone = "01822690061";
-  const whatsappUrl = `https://wa.me/88${phone}`;
+  const { email, phone, whatsappNumber } = data.contact;
+  const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);
@@ -52,7 +52,7 @@ const ContactSection = () => {
             Get In <span className="bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text text-transparent">Touch</span>
           </h2>
           <p className="text-gray-400 text-xs sm:text-sm max-w-md mx-auto">
-            Have a project in mind, a job opportunity, or want to collaborate? Send a message or connect directly below.
+            {data.contact.intro}
           </p>
         </div>
 

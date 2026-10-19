@@ -1,51 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaFolder } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import data from '../data/portfolio.json';
 
-const projectsData = [
-  {
-    id: 1,
-    title: "DentalCareBD",
-    category: "E-Commerce",
-    description: "Find trusted dentists, book appointments, make secure payments and manage your dental treatment from one simple platform.",
-    image: "https://i.postimg.cc/RF0WSbYf/Screenshot-23.png",
-    tech: ["React", "Node.js", "Tailwind", "MongoDB"],
-    liveUrl: "https://dental-clinic-manage-system.netlify.app/",
-    githubUrl: "https://github.com/SaifurnRahman/Dentel-Clinic-Management-System",
-  },
-  {
-    id: 2,
-    title: "UniCircleBD",
-    category: "Web Apps",
-    description: "The centralized platform to explore campus organizations, track your engagement history, and collaborate on high-impact projects.",
-    image: "https://i.ibb.co.com/Y48Czswv/Screenshot-21.png",
-    tech: ["React", "Tailwind CSS", "Framer Motion", "HTML5 Canvas"],
-    liveUrl: "https://unicarebd.netlify.app/",
-    githubUrl: "https://github.com/SaifurnRahman/university-club-membership-portal",
-  },
-  {
-    id: 3,
-    title: "Portfolio Site",
-    category: "Branding",
-    description: "SaifurHUB delivers cutting-edge digital solutions. From stunning graphic design to powerful web development and strategic brand promotion..",
-    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1000&auto=format&fit=crop",
-    tech: ["Illustrator", "Typography", "UI/UX", "Figma"],
-    liveUrl: "https://saifurhub-it-agency-xxqt.bolt.host/",
-    githubUrl: "#",
-  },
-  {
-    id: 4,
-    title: "NiyogBangla",
-    category: "Web Apps",
-    description: "NiyogBangla connects you with top employers across Bangladesh. Discover the right opportunities, apply easily, and move forward in your career — all in one place.",
-    image: "https://i.postimg.cc/FHdXjtfJ/Screenshot-24.png",
-    tech: ["Next.js", "TypeScript", "Chart.js", "Tailwind"],
-    liveUrl: "https://dragon-news-auth-1c028.web.app/",
-    githubUrl: "#",
-  },
-];
+const projectsData = data.projects;
 
-const categories = ['All', 'Web Apps', 'E-Commerce', 'Branding'];
+const categories = ['All', ...new Set(projectsData.map(p => p.category))];
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState('All');

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedinIn, FaTwitter, FaInstagram, FaYoutube, FaFacebookF } from 'react-icons/fa';
+import data from '../data/portfolio.json';
+import { Icon } from '../data/icons';
 import { HiArrowUp } from 'react-icons/hi';
 
 const Footer = () => {
@@ -26,10 +27,10 @@ const Footer = () => {
               <span>// PORTFOLIO_TERMINAL</span>
             </div>
             <h3 className="text-xl font-bold text-white tracking-tight">
-              Saifur Rahman
+              {data.profile.name}
             </h3>
             <p className="text-xs sm:text-sm text-gray-400 max-w-sm leading-relaxed">
-              Full-stack developer and designer building scalable web solutions, custom interfaces, and clean digital experiences.
+              {data.profile.footerBio}
             </p>
           </div>
 
@@ -59,19 +60,15 @@ const Footer = () => {
           <div className="md:col-span-3 space-y-4">
             <h4 className="text-xs font-semibold tracking-wider text-orange-500 uppercase">/* CONNECT */</h4>
             <div className="flex items-center space-x-2">
-              {[
-                { icon: <FaGithub size={13} />, href: '#' },
-                { icon: <FaLinkedinIn size={13} />, href: '#' },
-                { icon: <FaTwitter size={13} />, href: '#' },
-                { icon: <FaInstagram size={13} />, href: '#' },
-              ].map((social, index) => (
+              {data.socials.map((social, index) => (
                 <motion.a
                   key={index}
-                  href={social.href}
+                  href={social.url}
+                  title={social.platform}
                   whileHover={{ scale: 1.15, color: '#f97316', backgroundColor: 'rgba(249, 115, 22, 0.1)' }}
                   className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 transition-colors text-gray-400"
                 >
-                  {social.icon}
+                  <Icon name={social.icon} size={13} />
                 </motion.a>
               ))}
             </div>
@@ -82,7 +79,7 @@ const Footer = () => {
         {/* Divider & Bottom Credits */}
         <div className="pt-8 border-t border-neutral-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <p className="text-neutral-500">
-            © {new Date().getFullYear()} Saifur Rahman. All rights reserved.
+            © {new Date().getFullYear()} {data.profile.name}. All rights reserved.
           </p>
 
           <motion.button
