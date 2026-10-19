@@ -2,70 +2,59 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import data from '../data/portfolio.json';
 import { Icon } from '../data/icons';
-import { HiArrowRight } from 'react-icons/hi';
+import SectionHeading from './ui/SectionHeading';
 
 const services = data.services;
 
 const WhatIDo = () => {
   return (
-    <section id="services" className="relative bg-[#0c0c0e]/70 text-gray-100 py-24 px-4 sm:px-6 lg:px-8 font-mono overflow-hidden">
-      
-      {/* Background Accent Glow */}
-      <div className="absolute top-1/3 right-10 w-96 h-96 bg-orange-500/5 rounded-full blur-[120px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto w-full relative z-10 space-y-16">
-        
-        {/* Section Header */}
-        <div className="space-y-3 text-center lg:text-left">
-          <div className="flex items-center justify-center lg:justify-start space-x-2 text-xs text-orange-500 tracking-widest">
-            <span className="w-3 h-0.5 bg-orange-500 inline-block"></span>
-            <span>// EXPERTISE & SERVICES</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-            What I <span className="bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text text-transparent">Do</span>
-          </h2>
-          <p className="text-gray-400 text-xs sm:text-sm max-w-xl">
-            Combining aesthetic design precision with robust engineering to deliver comprehensive digital solutions.
-          </p>
+    <section id="services" className="relative py-24 sm:py-32 scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="lg:col-span-4 lg:sticky lg:top-32 self-start">
+          <SectionHeading
+            index="01"
+            label="Services"
+            title="What we"
+            accent="do."
+            intro="From websites and interfaces to posters, videos and motion: everything your brand needs to look good online."
+          />
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <ul className="lg:col-span-8 border-t border-line">
           {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
+            <motion.li
+              key={service.title}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -6, borderColor: 'rgba(249, 115, 22, 0.4)' }}
-              className="bg-neutral-900/60 border border-neutral-800/80 rounded-2xl p-6 flex flex-col justify-between space-y-6 backdrop-blur-sm transition-all group"
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.6, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative border-b border-line py-8 sm:py-10 grid grid-cols-[auto_1fr] sm:grid-cols-[4rem_1fr_auto] gap-x-6 gap-y-3 items-start"
             >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="p-3 bg-neutral-800/60 rounded-xl border border-neutral-700/50 group-hover:bg-orange-500/10 transition-colors">
-                    <Icon name={service.icon} size={24} className="text-orange-500" />
-                  </div>
-                  <span className="text-xs text-neutral-500 font-semibold">{service.code}</span>
-                </div>
+              {/* Hover fill */}
+              <span className="absolute inset-0 -mx-4 rounded-2xl bg-accent/[0.06] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
 
-                <h3 className="text-lg font-bold text-white group-hover:text-orange-400 transition-colors">
+              <span className="relative font-mono text-xs text-faint pt-3 group-hover:text-accent transition-colors">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <div className="relative space-y-3">
+                <h3 className="font-display text-3xl sm:text-4xl text-fg group-hover:italic transition-all">
                   {service.title}
                 </h3>
-
-                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
-                  {service.description}
-                </p>
+                <p className="text-muted text-sm sm:text-base leading-relaxed max-w-xl">{service.description}</p>
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {service.tags.map((tag) => (
+                    <span key={tag} className="px-3 py-1 rounded-full border border-line text-xs text-muted group-hover:border-accent/40 transition-colors">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-
-              <div className="pt-4 border-t border-neutral-800/60 flex items-center justify-between">
-                <span className="text-[11px] text-neutral-500 tracking-wider">explore_service()</span>
-                <HiArrowRight className="text-neutral-500 group-hover:text-orange-400 group-hover:translate-x-1 transition-all" size={16} />
-              </div>
-            </motion.div>
+              <span className="relative hidden sm:flex w-14 h-14 rounded-full border border-line items-center justify-center text-muted group-hover:text-white group-hover:bg-accent group-hover:border-accent group-hover:rotate-[-12deg] transition-all duration-500">
+                <Icon name={service.icon} size={20} />
+              </span>
+            </motion.li>
           ))}
-        </div>
-
+        </ul>
       </div>
     </section>
   );

@@ -1,126 +1,66 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaBriefcase, FaGraduationCap, FaCalendarAlt } from 'react-icons/fa';
+import { FaBriefcase, FaGraduationCap } from 'react-icons/fa';
 import data from '../data/portfolio.json';
+import SectionHeading from './ui/SectionHeading';
 
-const journeyData = { experience: data.experience, education: data.education };
+// One timeline: work first, then education.
+const timeline = [
+  ...data.experience.map((e) => ({ kind: 'Work', title: e.role, place: e.company, period: e.period, description: e.description })),
+  ...data.education.map((e) => ({ kind: 'Education', title: e.degree, place: e.institution, period: e.period, description: e.description })),
+];
 
-const Journey = () => {
+const Journey = ({ index = '06' }) => {
   return (
-    <section id="journey" className="relative  bg-[#0c0c0e]/40 text-gray-100 py-24 px-4 sm:px-6 lg:px-8 font-mono">
-      
-      {/* Glow Accent */}
-      <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-orange-500/5 rounded-full blur-[140px] pointer-events-none" />
+    <section id="journey" className="relative py-24 sm:py-32 scroll-mt-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        <SectionHeading
+          index={index}
+          label="Our story"
+          title="The founder's"
+          accent="journey."
+          intro="How SaifurHub came to be: freelance craft, starting the studio and engineering school."
+        />
 
-      <div className="max-w-7xl mx-auto w-full relative z-10 space-y-16">
-        
-        {/* Header */}
-        <div className="space-y-3 text-center lg:text-left">
-          <div className="flex items-center justify-center lg:justify-start space-x-2 text-xs text-orange-500 tracking-widest">
-            <span className="w-3 h-0.5 bg-orange-500 inline-block"></span>
-            <span>// CAREER_TIMELINE</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-            Experience & <span className="bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text text-transparent">Education</span>
-          </h2>
-          <p className="text-gray-400 text-xs sm:text-sm max-w-xl">
-            A chronological log of my professional career, business leadership, and continuous learning journey.
-          </p>
-        </div>
+        <ol className="relative">
+          {/* Center line (left line on mobile) */}
+          <span className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent/60 via-line to-transparent" />
 
-        {/* Grid Layout for Experience & Education */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          
-          {/* EXPERIENCE COLUMN */}
-          <div className="space-y-6">
-            <div className="flex items-center space-x-3 pb-2 border-b border-neutral-800">
-              <FaBriefcase className="text-orange-500" size={18} />
-              <h3 className="text-lg font-bold text-white tracking-wide">/* WORK_EXPERIENCE */</h3>
-            </div>
+          {timeline.map((item, index) => {
+            const right = index % 2 === 1;
+            const Icon = item.kind === 'Work' ? FaBriefcase : FaGraduationCap;
+            return (
+              <motion.li
+                key={`${item.title}-${index}`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="relative grid grid-cols-1 sm:grid-cols-2 sm:gap-16 pl-12 sm:pl-0 pb-14 last:pb-0"
+              >
+                {/* Node */}
+                <span className="absolute left-4 sm:left-1/2 top-2 -translate-x-1/2 w-8 h-8 rounded-full bg-bg border border-accent/60 text-accent flex items-center justify-center">
+                  <Icon size={12} />
+                </span>
 
-            <div className="space-y-6 relative before:absolute before:inset-0 before:left-3 before:w-0.5 before:bg-neutral-800">
-              {journeyData.experience.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.15 }}
-                  className="relative pl-8 group"
-                >
-                  {/* Timeline Node Dot */}
-                  <div className="absolute left-1.5 top-1.5 -translate-x-1/2 w-3 h-3 bg-neutral-900 border-2 border-orange-500 rounded-full group-hover:scale-125 group-hover:bg-orange-500 transition-all" />
+                {/* Period, on the opposite side of the card */}
+                <div className={`hidden sm:flex items-start ${right ? 'justify-end text-right' : 'order-2'}`}>
+                  <p className="font-display italic text-5xl text-fg/80 leading-none pt-1">{item.period}</p>
+                </div>
 
-                  <div className="bg-neutral-950/60 border border-neutral-800/80 hover:border-orange-500/50 p-6 rounded-2xl backdrop-blur-md space-y-3 transition-all shadow-lg">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-xs px-2.5 py-1 bg-orange-500/10 border border-orange-500/30 text-orange-400 rounded-md">
-                        {item.company}
-                      </span>
-                      <span className="text-xs text-neutral-400 flex items-center space-x-1.5">
-                        <FaCalendarAlt size={11} className="text-orange-500" />
-                        <span>{item.period}</span>
-                      </span>
-                    </div>
-
-                    <h4 className="text-base font-bold text-white group-hover:text-orange-400 transition-colors">
-                      {item.role}
-                    </h4>
-
-                    <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
-                      {item.description}
-                    </p>
+                <div className={`group rounded-2xl border border-line bg-card/70 p-6 sm:p-7 space-y-3 hover:border-accent/50 transition-colors ${right ? '' : 'sm:order-1'}`}>
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="label !text-[0.6rem] text-accent">{item.kind}</span>
+                    <span className="sm:hidden font-mono text-xs text-muted">{item.period}</span>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* EDUCATION COLUMN */}
-          <div className="space-y-6">
-            <div className="flex items-center space-x-3 pb-2 border-b border-neutral-800">
-              <FaGraduationCap className="text-orange-500" size={20} />
-              <h3 className="text-lg font-bold text-white tracking-wide">/* EDUCATION_LOG */</h3>
-            </div>
-
-            <div className="space-y-6 relative before:absolute before:inset-0 before:left-3 before:w-0.5 before:bg-neutral-800">
-              {journeyData.education.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.15 }}
-                  className="relative pl-8 group"
-                >
-                  {/* Timeline Node Dot */}
-                  <div className="absolute left-1.5 top-1.5 -translate-x-1/2 w-3 h-3 bg-neutral-900 border-2 border-orange-500 rounded-full group-hover:scale-125 group-hover:bg-orange-500 transition-all" />
-
-                  <div className="bg-neutral-950/60 border border-neutral-800/80 hover:border-orange-500/50 p-6 rounded-2xl backdrop-blur-md space-y-3 transition-all shadow-lg">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-xs px-2.5 py-1 bg-orange-500/10 border border-orange-500/30 text-orange-400 rounded-md">
-                        {item.institution}
-                      </span>
-                      <span className="text-xs text-neutral-400 flex items-center space-x-1.5">
-                        <FaCalendarAlt size={11} className="text-orange-500" />
-                        <span>{item.period}</span>
-                      </span>
-                    </div>
-
-                    <h4 className="text-base font-bold text-white group-hover:text-orange-400 transition-colors">
-                      {item.degree}
-                    </h4>
-
-                    <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-
+                  <h3 className="font-display text-3xl leading-tight text-fg">{item.title}</h3>
+                  <p className="text-sm font-semibold text-muted">{item.place}</p>
+                  <p className="text-sm text-muted leading-relaxed">{item.description}</p>
+                </div>
+              </motion.li>
+            );
+          })}
+        </ol>
       </div>
     </section>
   );

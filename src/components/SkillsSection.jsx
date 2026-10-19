@@ -1,132 +1,91 @@
-import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import data from '../data/portfolio.json';
 import { Icon } from '../data/icons';
+import SectionHeading from './ui/SectionHeading';
 
 const skillsData = data.skills;
+const categories = ['All', ...new Set(skillsData.map((skill) => skill.category))];
+const levels = ['Beginner', 'Intermediate', 'Advanced', 'Expert'];
 
 const SkillsSection = () => {
   const [activeFilter, setActiveFilter] = useState('All');
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isInside, setIsInside] = useState(false);
-  const containerRef = useRef(null);
 
-  const categories = ['All', ...new Set(skillsData.map(skill => skill.category))];
+  const filteredSkills = activeFilter === 'All'
+    ? skillsData
+    : skillsData.filter((skill) => skill.category === activeFilter);
 
-  const filteredSkills = activeFilter === 'All' 
-    ? skillsData 
-    : skillsData.filter(skill => skill.category === activeFilter);
-
-  const handleMouseMove = (e) => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      setMousePosition({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      });
-    }
-  };
+  const count = (category) =>
+    category === 'All' ? skillsData.length : skillsData.filter((s) => s.category === category).length;
 
   return (
-    <section 
-      id="skills"
-      ref={containerRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsInside(true)}
-      onMouseLeave={() => setIsInside(false)}
-      className="relative bg-transparent text-gray-100 py-24 px-4 sm:px-6 lg:px-8 font-mono overflow-hidden cursor-default"
-    >
-      
-      {/* Slow, Weighted Magnetic Custom Cursor Glow */}
-      {isInside && (
-        <motion.div
-          className="absolute w-80 h-80 bg-orange-500/15 rounded-full blur-[90px] pointer-events-none -translate-x-1/2 -translate-y-1/2 z-0"
-          animate={{
-            x: mousePosition.x,
-            y: mousePosition.y,
-          }}
-          transition={{ type: "spring", stiffness: 60, damping: 30, mass: 0.8 }}
+    <section id="skills" className="relative py-24 sm:py-32 scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <SectionHeading
+          index="03"
+          label="Toolbox"
+          title="Tools &"
+          accent="expertise."
+          intro="The tools we reach for every day, from the first sketch to the final deploy."
         />
-      )}
 
-      <div className="max-w-7xl mx-auto w-full relative z-10 space-y-12">
-        
-        {/* Section Header */}
-        <div className="space-y-3 text-center">
-          <motion.div 
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center space-x-2 text-xs text-orange-500 tracking-widest"
-          >
-            <span className="w-3 h-0.5 bg-orange-500 inline-block"></span>
-            <span>// TECHNICAL_ARSENAL</span>
-            <span className="w-3 h-0.5 bg-orange-500 inline-block"></span>
-          </motion.div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-            Skills & <span className="bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text text-transparent">Expertise</span>
-          </h2>
-        </div>
-
-        {/* Category Filters */}
-        <div className="flex flex-wrap items-center justify-center gap-2">
-          {categories.map((category) => (
-            <motion.button
-              key={category}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setActiveFilter(category)}
-              className={`px-4 py-2 rounded-xl text-xs transition-all duration-300 border ${
-                activeFilter === category 
-                  ? 'bg-orange-500 text-white border-orange-500 shadow-lg shadow-orange-500/30' 
-                  : 'bg-neutral-950/65 text-gray-400 border-neutral-800 hover:border-orange-500/40 hover:text-white'
-              }`}
-            >
-              // {category.toUpperCase()}
-            </motion.button>
-          ))}
-        </div>
-
-        {/* Skills Grid */}
-        <motion.div 
-          layout
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
-        >
-          {filteredSkills.map((skill, idx) => (
-            <motion.div
-              layout
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.03 }}
-              key={skill.name}
-              whileHover={{ scale: 1.08, y: -6 }}
-              whileTap={{ scale: 0.96 }}
-              className="group bg-neutral-950/80 border border-neutral-800/90 hover:border-orange-500/80 rounded-2xl p-5 backdrop-blur-md shadow-xl flex flex-col items-center justify-center space-y-3 transition-colors relative overflow-hidden"
-            >
-              {/* Animated Top Scanline Beam */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-              {/* Icon Container with Rotation */}
-              <motion.div 
-                whileHover={{ rotate: [0, -10, 10, 0] }}
-                transition={{ duration: 0.4 }}
-                className="p-3 bg-neutral-900 border border-neutral-800 rounded-xl group-hover:border-orange-500/40 group-hover:bg-orange-500/15 transition-colors shadow-inner"
+        {/* Filters with counts */}
+        <div className="flex flex-wrap gap-2">
+          {categories.map((category) => {
+            const isActive = activeFilter === category;
+            return (
+              <button
+                key={category}
+                onClick={() => setActiveFilter(category)}
+                className={`relative inline-flex items-center gap-2 h-10 px-4 rounded-full text-sm border transition-colors ${
+                  isActive ? 'border-transparent text-white' : 'border-line text-muted hover:text-fg hover:border-faint'
+                }`}
               >
-                <Icon name={skill.icon} className={skill.color} size={26} />
-              </motion.div>
+                {isActive && (
+                  <motion.span layoutId="skill-filter" className="absolute inset-0 rounded-full bg-accent" transition={{ type: 'spring', stiffness: 380, damping: 32 }} />
+                )}
+                <span className="relative">{category}</span>
+                <span className={`relative font-mono text-[10px] ${isActive ? 'text-white/80' : 'text-faint'}`}>{count(category)}</span>
+              </button>
+            );
+          })}
+        </div>
 
-              <div className="text-center space-y-1">
-                <h4 className="text-white font-bold text-xs group-hover:text-orange-400 transition-colors">
-                  {skill.name}
-                </h4>
-                <span className="text-[10px] text-neutral-500 px-2 py-0.5 bg-neutral-900/80 rounded-md border border-neutral-800/50 block">
-                  {skill.level}
-                </span>
-              </div>
-            </motion.div>
-          ))}
+        {/* Skills grid */}
+        <motion.div layout className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+          <AnimatePresence mode="popLayout">
+            {filteredSkills.map((skill, idx) => {
+              const level = levels.indexOf(skill.level) + 1;
+              return (
+                <motion.div
+                  layout
+                  key={skill.name}
+                  initial={{ opacity: 0, scale: 0.92 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.92 }}
+                  transition={{ duration: 0.35, delay: idx * 0.02 }}
+                  className="group relative rounded-2xl border border-line bg-card/70 p-4 sm:p-5 hover:border-accent/50 hover:-translate-y-1 transition-[border-color,transform] duration-300"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <span className="w-11 h-11 rounded-xl bg-bg-soft border border-line flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Icon name={skill.icon} className={skill.color} size={22} />
+                    </span>
+                    <span className="label !text-[0.55rem] text-right">{skill.category}</span>
+                  </div>
+                  <h4 className="mt-4 text-sm sm:text-base font-semibold text-fg">{skill.name}</h4>
+                  <div className="mt-3 flex items-center justify-between gap-2">
+                    <span className="text-xs text-muted">{skill.level}</span>
+                    <span className="flex gap-1" title={skill.level}>
+                      {levels.map((_, i) => (
+                        <span key={i} className={`w-1.5 h-1.5 rounded-full ${i < level ? 'bg-accent' : 'bg-line'}`} />
+                      ))}
+                    </span>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
         </motion.div>
-
       </div>
     </section>
   );

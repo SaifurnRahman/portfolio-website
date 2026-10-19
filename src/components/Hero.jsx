@@ -1,166 +1,175 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { HiArrowRight, HiArrowDown } from 'react-icons/hi';
+import { Link } from 'react-router';
+import founderImage from '../assets/profile.webp';
 import data from '../data/portfolio.json';
 import { Icon } from '../data/icons';
-import { HiArrowRight } from 'react-icons/hi';
-import { FiChevronDown } from 'react-icons/fi';
-import profileImage from '../assets/profile.png';
+import LocalTime from './ui/LocalTime';
 
-const { profile } = data;
-const roles = profile.roles;
+const { studio, founder, socials } = data;
+const ease = [0.22, 1, 0.36, 1];
 
 const Hero = () => {
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [currentText, setCurrentText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(150);
+  const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {
-    const fullText = roles[currentRoleIndex];
-
-    const handleTyping = () => {
-      if (!isDeleting) {
-        setCurrentText(fullText.substring(0, currentText.length + 1));
-        if (currentText === fullText) {
-          setTimeout(() => setIsDeleting(true), 2000);
-          setTypingSpeed(100);
-        }
-      } else {
-        setCurrentText(fullText.substring(0, currentText.length - 1));
-        if (currentText === '') {
-          setIsDeleting(false);
-          setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-          setTypingSpeed(150);
-        }
-      }
-    };
-
-    const timer = setTimeout(handleTyping, typingSpeed);
-    return () => clearTimeout(timer);
-  }, [currentText, isDeleting, currentRoleIndex, typingSpeed]);
+    const id = setInterval(() => setWordIndex((i) => (i + 1) % studio.rotating.length), 2600);
+    return () => clearInterval(id);
+  }, []);
 
   return (
-    <section id="home" className="relative min-h-[50vh] bg-[#0c0c0e]/70 text-gray-100 flex items-center overflow-hidden py-10 sm:px-6 lg:px-8 font-mono">
-      {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-orange-500/10 rounded-full blur-[150px] pointer-events-none" />
+    <section id="home" className="relative pt-8 sm:pt-14 pb-10 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
-      {/* Main Container - 3 Columns Grid on Large Screens */}
-      <div className="max-w-7xl mx-auto w-full relative grid grid-cols-1 lg:grid-cols-3 items-center">
-        
-        {/* LEFT COLUMN: Takes 1 Span */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="lg:col-span-1 z-10 space-y-6 text-center lg:text-left bg-transparent p-6 lg:p-0 rounded-2xl"
-        >
-          <div className="flex items-center justify-center lg:justify-start space-x-2 text-xs text-orange-500 tracking-widest">
-            <span className="w-3 h-0.5 bg-orange-500 inline-block"></span>
-            <span>// const developer = new Saifur();</span>
-          </div>
-
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-            I'm {profile.shortName}, a <br />
-            <span className="bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text text-transparent">
-              {currentText}
+        {/* Text */}
+        <div className="lg:col-span-6 space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease }}
+            className="flex flex-wrap items-center gap-3"
+          >
+            {studio.available && (
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-line bg-card/70 backdrop-blur text-xs text-fg">
+                <span className="relative flex w-2 h-2">
+                  <span className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-60" />
+                  <span className="relative w-2 h-2 rounded-full bg-emerald-500" />
+                </span>
+                {studio.availability}
+              </span>
+            )}
+            <span className="font-mono text-[11px] text-faint">
+              {studio.label} · {studio.location} · <LocalTime timeZone={studio.timezone} />
             </span>
-            <span className="animate-pulse text-orange-500">_</span>
-          </h1>
+          </motion.div>
 
-          <p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-sm mx-auto lg:mx-0">
-            {profile.tagline}
-          </p>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.1, ease }}
+            className="font-display text-[2.9rem] leading-[1] sm:text-7xl lg:text-[4.4rem] xl:text-[5.4rem] tracking-tight text-fg"
+          >
+            {studio.headline}
+            {/* Rotating word on its own line, sized so the longest one fits */}
+            <span className="relative block h-[1.1em] overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.em
+                  key={wordIndex}
+                  initial={{ y: '100%', opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: '-100%', opacity: 0 }}
+                  transition={{ duration: 0.5, ease }}
+                  className="block text-accent whitespace-nowrap"
+                >
+                  {studio.rotating[wordIndex]}
+                </motion.em>
+              </AnimatePresence>
+            </span>
+          </motion.h1>
 
-          <div className="pt-2 flex items-center justify-center lg:justify-start">
-            <motion.a
-              href="#projects"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-12 h-12 bg-orange-500 hover:bg-orange-600 rounded-lg flex items-center justify-center text-white shadow-lg shadow-orange-500/30 transition-all pointer-events-auto"
-            >
-              <FiChevronDown size={24} className="animate-bounce" />
-            </motion.a>
-          </div>
-        </motion.div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.25, ease }}
+            className="text-muted text-base sm:text-lg leading-relaxed max-w-xl"
+          >
+            {studio.tagline}
+          </motion.p>
 
-        {/* RIGHT WRAPPER DIV: Takes 2 Spans (Image on Top, Followed by About Me & More) */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="lg:col-span-2 z-10 lg:flex  items-center justify-center space-y-8 text-center lg:text-end bg-[#0c0c0e]/40 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none rounded-3xl border border-neutral-800/50 lg:border-none p-2"
-        >
-          {/* Portrait Image Container */}
-          <div className="flex items-center justify-center lg:justify-center w-full">
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              whileHover={{ scale: 1.03 }}
-              className="w-[320px] sm:w-[420px] lg:w-[460px] h-[380px] sm:h-[440px] lg:h-[480px] relative flex items-end justify-center pointer-events-auto cursor-pointer group"
-            >
-              {/* Glowing backdrop on hover */}
-              <div className="absolute inset-0 bg-orange-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              <img 
-                src={profileImage}
-                alt={profile.name} 
-                className="w-full h-full object-contain object-bottom filter grayscale-75 contrast-125 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-500 drop-shadow-[0_20px_25px_rgba(0,0,0,0.9)]"
-              />
-            </motion.div>
-          </div>
-
-         <div className='flex flex-col items-center'>
-           {/* About Me Brief */}
-          <div className="space-y-1.5 w-full">
-            <h3 className="text-xs font-semibold tracking-wider text-orange-500">/* ABOUT ME */</h3>
-            <p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-lg mx-auto lg:mx-0 lg:ml-auto">
-              {profile.aboutBrief}
-            </p>
-            <a
-              href="#about"
-              className="inline-flex items-center justify-end space-x-2 text-xs font-bold text-white hover:text-orange-400 transition-colors pt-1 group pointer-events-auto"
-            >
-              <span>LEARN MORE</span>
-              <HiArrowRight className="group-hover:translate-x-1 transition-transform" />
-            </a>
-          </div>
-
-          {/* My Work Brief */}
-          <div className="space-y-1.5 w-full">
-            <h3 className="text-xs font-semibold tracking-wider text-orange-500">/* MY WORK */</h3>
-            <p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-lg mx-auto lg:mx-0 lg:ml-auto">
-              {profile.workBrief}
-            </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35, ease }}
+            className="flex flex-wrap items-center gap-3"
+          >
             <a
               href="#projects"
-              className="inline-flex items-center justify-end space-x-2 text-xs font-bold text-white hover:text-orange-400 transition-colors pt-1 group pointer-events-auto"
+              className="group inline-flex items-center gap-2 h-12 px-6 rounded-full bg-accent text-white text-sm font-semibold shadow-lg shadow-accent/25 hover:shadow-accent/40 transition-shadow"
             >
-              <span>BROWSE PORTFOLIO</span>
-              <HiArrowRight className="group-hover:translate-x-1 transition-transform" />
+              See our work
+              <HiArrowDown className="group-hover:translate-y-0.5 transition-transform" />
             </a>
-          </div>
+            <Link
+              to="/team"
+              className="group inline-flex items-center gap-2 h-12 px-6 rounded-full border border-line text-sm font-semibold text-fg hover:border-accent/60 transition-colors"
+            >
+              Meet the team
+              <HiArrowRight className="group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </motion.div>
 
-          {/* Social Links */}
-          <div className="space-y-2 w-full">
-            <h3 className="text-xs font-semibold tracking-wider text-orange-500">/* FOLLOW ME */</h3>
-            <div className="flex items-center justify-center lg:justify-end space-x-2.5 text-gray-400 pointer-events-auto">
-              {data.socials.map((social, index) => (
-                <motion.a
-                  key={index}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex items-center gap-4 pt-2"
+          >
+            <span className="label">Follow</span>
+            <span className="h-px w-8 bg-line" />
+            <div className="flex items-center gap-1">
+              {socials.map((social) => (
+                <a
+                  key={social.platform}
                   href={social.url}
                   title={social.platform}
-                  whileHover={{ scale: 1.15, color: '#f97316', backgroundColor: 'rgba(249, 115, 22, 0.1)' }}
-                  className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-muted hover:text-accent hover:bg-accent/10 transition-colors"
                 >
-                  <Icon name={social.icon} size={13} />
-                </motion.a>
+                  <Icon name={social.icon} size={14} />
+                </a>
               ))}
             </div>
+          </motion.div>
+        </div>
+
+        {/* Founder portrait */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.2, ease }}
+          className="lg:col-span-6 flex justify-center lg:justify-end"
+        >
+          <div className="relative w-full max-w-[360px] sm:max-w-[460px] lg:max-w-[540px] group">
+            {/* Arch frame that fades out at the bottom, so the photo melts into the page */}
+            <div className="relative aspect-[4/5] rounded-t-full overflow-hidden [mask-image:linear-gradient(to_bottom,#000_62%,transparent_98%)]">
+              <div className="absolute inset-0 rounded-t-full border border-line bg-gradient-to-b from-card to-bg-soft" />
+              <div className="absolute inset-x-6 top-1/4 -bottom-10 rounded-full bg-accent/30 blur-3xl" />
+              <img
+                src={founderImage}
+                alt={`${founder.name}, ${founder.role} of ${studio.name}`}
+                className="absolute inset-0 w-full h-full object-contain object-bottom origin-bottom group-hover:scale-[1.03] transition-transform duration-700"
+              />
+            </div>
+
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+              className="absolute -left-2 sm:-left-10 bottom-[22%] px-4 py-3 rounded-2xl border border-line bg-card/95 shadow-xl"
+            >
+              <p className="label !text-[0.6rem]">{founder.role}</p>
+              <p className="text-sm font-semibold text-fg">{founder.name}</p>
+              <p className="text-xs text-accent">{founder.focus}</p>
+            </motion.div>
           </div>
-         </div>
-
         </motion.div>
+      </div>
 
+      {/* Keyword marquee */}
+      <div className="mt-10 border-y border-line py-5 overflow-hidden select-none" aria-hidden="true">
+        <div className="flex w-max animate-marquee">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="flex items-center shrink-0">
+              {[...studio.keywords, ...studio.keywords].map((word, i) => (
+                <span key={i} className="flex items-center font-display text-3xl sm:text-4xl text-fg whitespace-nowrap">
+                  <span className={i % 2 ? 'italic text-muted' : ''}>{word}</span>
+                  <span className="text-accent text-xl mx-8">✦</span>
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

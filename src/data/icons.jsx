@@ -4,6 +4,7 @@ import {
   FaReact, FaHtml5, FaJs, FaGitAlt, FaFigma, FaNodeJs, FaImage, FaPenNib,
   FaLaptopCode, FaPaintBrush, FaMobileAlt, FaServer, FaPalette, FaStore,
   FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube, FaGithub, FaCode,
+  FaPencilRuler, FaVideo, FaFilm, FaMagic,
 } from 'react-icons/fa';
 import {
   SiTailwindcss, SiTypescript, SiNextdotjs, SiVite, SiCplusplus, SiWordpress, SiMongodb, SiExpress,
@@ -13,6 +14,7 @@ const icons = {
   FaReact, FaHtml5, FaJs, FaGitAlt, FaFigma, FaNodeJs, FaImage, FaPenNib,
   FaLaptopCode, FaPaintBrush, FaMobileAlt, FaServer, FaPalette, FaStore,
   FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube, FaGithub,
+  FaPencilRuler, FaVideo, FaFilm, FaMagic,
   SiTailwindcss, SiTypescript, SiNextdotjs, SiVite, SiCplusplus, SiWordpress, SiMongodb, SiExpress,
 };
 

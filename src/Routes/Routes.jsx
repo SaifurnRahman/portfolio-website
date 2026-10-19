@@ -8,6 +8,7 @@ import Login from "../components/Login";
 import Root from "../Layout/Root";
 import ContactSection from "../pages/ContactSection";
 import AboutSection from "../pages/AboutSection";
+import TeamPage from "../pages/TeamPage";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
     {
       path:'aboutSection',
       Component: AboutSection
+    },
+    {
+      path:'team',
+      Component: TeamPage
     }
    ]
   },

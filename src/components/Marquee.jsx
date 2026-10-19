@@ -7,7 +7,7 @@ const testimonials = [
     name: "Alex Morgan",
     role: "Startup Founder",
     content: "Saifur delivered an exceptional e-commerce platform for us. Attention to detail is top-tier.",
-    project: "Shosta Shodai E-Commerce"
+    project: "E-Commerce Platform"
   },
   {
     name: "Sarah Jenkins",

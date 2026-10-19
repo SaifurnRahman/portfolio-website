@@ -1,21 +1,58 @@
 {
-  "profile": {
+  "studio": {
+    "name": "SaifurHub",
+    "brandName": "Saifur",
+    "brandSuffix": "Hub",
+    "label": "Creative digital studio",
+    "location": "Dhaka, Bangladesh",
+    "timezone": "Asia/Dhaka",
+    "available": true,
+    "availability": "Taking new projects",
+    "headline": "We craft",
+    "rotating": ["websites.", "UI / UX.", "brand designs.", "video edits.", "motion graphics.", "animations."],
+    "tagline": "SaifurHub is a creative studio from Dhaka. Our small team designs and builds websites, creates graphics, and edits and animates videos for brands and startups.",
+    "keywords": ["Website Development", "UI / UX Design", "Video Editing", "Motion Graphics", "Animation", "Poster Design", "Flyer Design", "Brand Identity"],
+    "footerBio": "A creative digital studio for websites, interfaces, graphics and motion content that people remember."
+  },
+
+  "founder": {
     "name": "Saifur Rahman",
     "shortName": "Saifur",
-    "brandName": "Saifur",
-    "brandSuffix": ".dev",
-    "roles": ["Web Developer", "Full Stack Dev", "Designer"],
-    "tagline": "Passionate designer and developer with 4+ years of experience, collaborating with companies and startups to build modern digital products.",
-    "aboutBrief": "I love solving problems with creative solutions and modern technologies, blending high-end design with clean code.",
-    "workBrief": "Explore my latest digital products, responsive web apps, and creative design systems.",
-    "footerBio": "Full-stack developer and designer building scalable web solutions, custom interfaces, and clean digital experiences."
+    "role": "Founder & Owner",
+    "focus": "Design & Development",
+    "bio": "Saifur started SaifurHub after years of freelance logo, t-shirt and web projects for clients around the world. He leads the studio and personally handles design and development, from brand identity and UI to full-stack websites.",
+    "skills": ["UI / UX", "Graphic Design", "Branding", "React / Next.js", "Full-Stack Development"]
   },
+
+  "team": [
+    {
+      "name": "",
+      "role": "Video Editor",
+      "icon": "FaVideo",
+      "description": "Edits reels, promos, YouTube videos and ads with clean cuts, colour grading, sound and subtitles.",
+      "tags": ["Reels", "YouTube", "Ads"]
+    },
+    {
+      "name": "",
+      "role": "UI / UX Designer",
+      "icon": "FaPencilRuler",
+      "description": "Designs user-friendly interfaces, wireframes and clickable prototypes for websites and apps.",
+      "tags": ["Wireframes", "Prototypes", "Figma"]
+    },
+    {
+      "name": "",
+      "role": "Motion Designer",
+      "icon": "FaFilm",
+      "description": "Creates animated titles, logo reveals, explainer graphics and social media animations.",
+      "tags": ["Logo reveals", "Explainers", "Animation"]
+    }
+  ],
 
   "contact": {
     "email": "saifurrahman24to7@gmail.com",
     "phone": "01822690061",
     "whatsappNumber": "8801822690061",
-    "intro": "Have a project in mind, a job opportunity, or want to collaborate? Send a message or connect directly below."
+    "intro": "Have a project in mind? Tell us about it and we will get back to you, or reach us directly below."
   },
 
   "socials": [
@@ -30,36 +67,34 @@
   "navLinks": [
     { "name": "Home", "href": "/#home" },
     { "name": "About", "href": "/aboutSection" },
-    { "name": "Skills", "href": "#skills" },
-    { "name": "Journey", "href": "#journey" },
-    { "name": "Projects", "href": "#projects" },
+    { "name": "Services", "href": "/#services" },
+    { "name": "Projects", "href": "/#projects" },
+    { "name": "Team", "href": "/team" },
     { "name": "Contact", "href": "/contactSection" }
   ],
 
   "about": {
-    "headline": "Bridging Creativity & Code",
-    "intro": "Hello! I'm **Saifur Rahman**, a multi-disciplinary creator combining professional graphic design artistry with full-stack software development and digital entrepreneurship.",
-    "story": "With a strong background in freelance logo and t-shirt design spanning thousands of successful projects, I transitioned my eye for layout and user experience into writing high-performance web applications. I also run the online business **shosta shodai**, giving me hands-on perspective into digital marketing, customer support, and strategic business operations.",
-    "specialization": "Frontend & Branding",
-    "venture": "Shosta Shodai",
+    "headline": "Design, code & motion under one roof",
+    "intro": "**SaifurHub** is a creative digital studio founded by Saifur Rahman in Dhaka, Bangladesh.",
+    "story": "It started with freelance logo, t-shirt and web projects for clients around the world. Today SaifurHub is a small team of designers, developers, video editors and motion designers working together, so you get your **website, graphics and videos from one place**, in one consistent style.",
     "highlights": [
       {
         "icon": "FaPalette",
         "color": "text-orange-500",
-        "title": "Graphic & T-Shirt Design",
-        "description": "Completed thousands of specialized t-shirt designs, custom logos, and branding projects with years of expertise in typography and vector illustration."
-      },
-      {
-        "icon": "FaStore",
-        "color": "text-amber-500",
-        "title": "Online Business Owner",
-        "description": "Founder and operator of the e-commerce venture 'shosta shodai', managing digital operations, sales strategies, and customer scaling."
+        "title": "Design first",
+        "description": "Every project starts with research and design: layouts, typography and colours that fit your brand."
       },
       {
         "icon": "FaLaptopCode",
         "color": "text-cyan-400",
-        "title": "Full-Stack & Frontend Dev",
-        "description": "Building responsive, animated web interfaces using React, Tailwind CSS, and modern JavaScript, backed by robust backend and database capabilities."
+        "title": "Built to last",
+        "description": "Fast, responsive websites built with modern tools like React, Next.js and Node.js, easy to grow later."
+      },
+      {
+        "icon": "FaVideo",
+        "color": "text-pink-500",
+        "title": "Motion that stands out",
+        "description": "Video edits, motion graphics and animations that make your brand stand out on social media."
       }
     ]
   },
@@ -67,27 +102,39 @@
   "services": [
     {
       "icon": "FaLaptopCode",
-      "title": "Full-Stack Web Dev",
-      "description": "Building scalable, high-performance web applications using modern frameworks like React, Next.js, and Node.js.",
-      "code": "01 // Frontend & Backend"
+      "title": "Website Development",
+      "description": "Fast, responsive websites and full-stack web apps built with React, Next.js, Node.js and MongoDB, from landing pages to complete platforms.",
+      "tags": ["Websites", "Web apps", "E-commerce"]
     },
     {
-      "icon": "FaPaintBrush",
-      "title": "UI/UX & Graphic Design",
-      "description": "Crafting intuitive user interfaces, stunning branding materials, and custom t-shirt and logo designs with precision.",
-      "code": "02 // Creative & Branding"
+      "icon": "FaPencilRuler",
+      "title": "UI / UX Design",
+      "description": "Clear, user-friendly interfaces and clickable prototypes designed in Figma, so your product looks great and is easy to use on every screen.",
+      "tags": ["Wireframes", "Prototypes", "Design systems"]
     },
     {
-      "icon": "FaMobileAlt",
-      "title": "Responsive Layouts",
-      "description": "Ensuring flawless user experiences across mobile, tablet, and desktop screens with Tailwind CSS and advanced styling.",
-      "code": "03 // Mobile First"
+      "icon": "FaPalette",
+      "title": "Graphic Design",
+      "description": "Eye-catching posters, flyers, social media posts, logos and t-shirt designs, with strong typography and print-ready files.",
+      "tags": ["Posters", "Flyers", "Logos", "T-shirts"]
     },
     {
-      "icon": "FaServer",
-      "title": "API & System Integration",
-      "description": "Connecting robust database systems, third-party payment gateways, and custom backend APIs smoothly.",
-      "code": "04 // Architecture"
+      "icon": "FaVideo",
+      "title": "Video Editing",
+      "description": "Reels, promos, YouTube videos and ads edited with clean cuts, colour grading, sound design, subtitles and smooth transitions.",
+      "tags": ["Reels", "YouTube", "Ads"]
+    },
+    {
+      "icon": "FaFilm",
+      "title": "Motion Graphics",
+      "description": "Animated titles, logo reveals, lower thirds and explainer graphics that make your videos and brand feel alive.",
+      "tags": ["Logo reveals", "Titles", "Explainers"]
+    },
+    {
+      "icon": "FaMagic",
+      "title": "Animation",
+      "description": "Animated social posts, ads and website animations, taken from idea and storyboard to the final render.",
+      "tags": ["Social media", "Ads", "Web"]
     }
   ],
 
@@ -139,13 +186,13 @@
     { "name": "JavaScript (ES6+)", "category": "Frontend", "icon": "FaJs", "color": "text-yellow-400", "level": "Expert" },
     { "name": "Tailwind CSS", "category": "Styling", "icon": "SiTailwindcss", "color": "text-teal-400", "level": "Expert" },
     { "name": "HTML5 / CSS3", "category": "Frontend", "icon": "FaHtml5", "color": "text-orange-500", "level": "Expert" },
-    { "name": "Next.js", "category": "Framework", "icon": "SiNextdotjs", "color": "text-white", "level": "Intermediate" },
+    { "name": "Next.js", "category": "Framework", "icon": "SiNextdotjs", "color": "text-fg", "level": "Intermediate" },
     { "name": "TypeScript", "category": "Language", "icon": "SiTypescript", "color": "text-blue-500", "level": "Intermediate" },
     { "name": "Figma / UI-UX", "category": "Design", "icon": "FaFigma", "color": "text-pink-500", "level": "Advanced" },
     { "name": "Adobe Photoshop", "category": "Design", "icon": "FaImage", "color": "text-blue-400", "level": "Advanced" },
     { "name": "Adobe Illustrator", "category": "Design", "icon": "FaPenNib", "color": "text-orange-400", "level": "Advanced" },
     { "name": "Node.js", "category": "Backend", "icon": "FaNodeJs", "color": "text-green-500", "level": "Intermediate" },
-    { "name": "Express.js", "category": "Backend", "icon": "SiExpress", "color": "text-gray-300", "level": "Intermediate" },
+    { "name": "Express.js", "category": "Backend", "icon": "SiExpress", "color": "text-muted", "level": "Intermediate" },
     { "name": "MongoDB", "category": "Backend", "icon": "SiMongodb", "color": "text-emerald-500", "level": "Intermediate" },
     { "name": "Git & GitHub", "category": "Tools", "icon": "FaGitAlt", "color": "text-orange-600", "level": "Advanced" },
     { "name": "WordPress", "category": "CMS", "icon": "SiWordpress", "color": "text-sky-600", "level": "Advanced" },
@@ -158,7 +205,7 @@
       "role": "Founder & Owner",
       "company": "SaifurHub",
       "period": "2025 - Present",
-      "description": "Managing e-commerce operations, digital growth, customer support, and strategic sales negotiation."
+      "description": "Leading SaifurHub: handling design and development himself, managing the team and working directly with every client."
     },
     {
       "role": "Freelance Designer & Developer",
@@ -184,7 +231,7 @@
       "role": "Startup Founder",
       "content": "Saifur delivered an exceptional e-commerce platform for us. His attention to design detail, clean code structure, and lightning-fast responsiveness blew our team away.",
       "rating": 5,
-      "project": "Shosta Shodai E-Commerce"
+      "project": "E-Commerce Platform"
     },
     {
       "id": 2,
