@@ -26,21 +26,21 @@
 
   "team": [
     {
-      "name": "",
+      "name": "MD Santo",
       "role": "Video Editor",
       "icon": "FaVideo",
       "description": "Edits reels, promos, YouTube videos and ads with clean cuts, colour grading, sound and subtitles.",
       "tags": ["Reels", "YouTube", "Ads"]
     },
     {
-      "name": "",
+      "name": "Shariar Khan",
       "role": "UI / UX Designer",
       "icon": "FaPencilRuler",
       "description": "Designs user-friendly interfaces, wireframes and clickable prototypes for websites and apps.",
       "tags": ["Wireframes", "Prototypes", "Figma"]
     },
     {
-      "name": "",
+      "name": "Hossain Khan",
       "role": "Motion Designer",
       "icon": "FaFilm",
       "description": "Creates animated titles, logo reveals, explainer graphics and social media animations.",
@@ -141,6 +141,26 @@
   "projects": [
     {
       "id": 1,
+      "title": "kobul-counter",
+      "category": "Marrage tracking",
+      "description": "কবুল বলার পর থেকে প্রতিটা সেকেন্ডের হিসাব",
+      "image": "https://i.ibb.co.com/hJn4W7Pt/Screenshot-27.png",
+      "tech": ["React", "Node.js", "Tailwind", "MongoDB"],
+      "liveUrl": "https://kobul-counter.netlify.app/",
+      "githubUrl": "https://github.com/SaifurnRahman/Kobul-Counter"
+    },
+    {
+      "id": 2,
+      "title": "Rifat Organic",
+      "category": "E-Commerce",
+      "description": "নোয়াখালীর বিশ্বস্ত অর্গানিক খাবারের দোকান। ভেজালের এই সময়ে আমরা চাই প্রতিটি পরিবার যেন নিশ্চিন্তে খাঁটি খাবার খেতে পারে। তাই সুন্দরবনের মধু থেকে শুরু করে ঘানি ভাঙা সরিষার তেল, গাওয়া ঘি ও ঘরে ভাঙানো মসলা — সবকিছু আমরা নিজেরা যাচাই করে সংগ্রহ করি।.",
+      "image": "https://i.ibb.co.com/PzP1Yp2X/Screenshot-25.png",
+      "tech": ["React", "Node.js", "Tailwind", "MongoDB"],
+      "liveUrl": "https://rifat-organic-shop.netlify.app/",
+      "githubUrl": "https://github.com/SaifurnRahman/rifat-organic-shop"
+    },
+    {
+      "id": 3,
       "title": "DentalCareBD",
       "category": "E-Commerce",
       "description": "Find trusted dentists, book appointments, make secure payments and manage your dental treatment from one simple platform.",
@@ -150,7 +170,17 @@
       "githubUrl": "https://github.com/SaifurnRahman/Dentel-Clinic-Management-System"
     },
     {
-      "id": 2,
+      "id": 4,
+      "title": "amar-shoishob",
+      "category": "Tracker website",
+      "description": "ছোটবেলায় যা যা করেছেন টিক দিন, আর বানিয়ে ফেলুন নিজের শৈশবের কার্ড।",
+      "image": "https://i.ibb.co.com/ym5YDfBg/Screenshot-26.png",
+      "tech": ["React", "Node.js", "Tailwind", "MongoDB"],
+      "liveUrl": "https://amar-shoishob.netlify.app/",
+      "githubUrl": "https://github.com/SaifurnRahman/amar-shoishob"
+    },
+    {
+      "id": 5,
       "title": "UniCircleBD",
       "category": "Web Apps",
       "description": "The centralized platform to explore campus organizations, track your engagement history, and collaborate on high-impact projects.",
@@ -160,7 +190,7 @@
       "githubUrl": "https://github.com/SaifurnRahman/university-club-membership-portal"
     },
     {
-      "id": 3,
+      "id": 6,
       "title": "Portfolio Site",
       "category": "Branding",
       "description": "SaifurHUB delivers cutting-edge digital solutions. From stunning graphic design to powerful web development and strategic brand promotion..",
@@ -170,7 +200,7 @@
       "githubUrl": "#"
     },
     {
-      "id": 4,
+      "id": 7,
       "title": "NiyogBangla",
       "category": "Web Apps",
       "description": "NiyogBangla connects you with top employers across Bangladesh. Discover the right opportunities, apply easily, and move forward in your career — all in one place.",

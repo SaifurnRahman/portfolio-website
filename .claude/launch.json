@@ -1,0 +1,29 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 5173
+    },
+    {
+      "name": "rifat-client",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "D:/Programing project/project/rifat-organic shop/rifat-organic-shop-client", "run", "dev", "--", "--port", "5174", "--strictPort"],
+      "port": 5174
+    },
+    {
+      "name": "rifat-server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "D:/Programing project/project/rifat-organic shop/rifat-organic-shop-server", "run", "dev"],
+      "port": 5000
+    },
+    {
+      "name": "amar-shoishob",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "D:/Programing project/Hobby Project/আমার শৈশব", "run", "dev", "--", "--port", "5175", "--strictPort"],
+      "port": 5175
+    }
+  ]
+}
