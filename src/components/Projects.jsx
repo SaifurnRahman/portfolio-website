@@ -1,188 +1,172 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { FaGithub } from 'react-icons/fa';
-import { HiArrowLeft, HiArrowRight, HiArrowUpRight } from 'react-icons/hi2';
+import { HiPlay, HiSquare2Stack } from 'react-icons/hi2';
 import data from '../data/portfolio.json';
+import { Icon } from '../data/icons';
 import SectionHeading from './ui/SectionHeading';
+import WebProjects from './WebProjects';
+import Lightbox from './ui/Lightbox';
 
-const projectsData = data.projects;
-const pad = (n) => String(n).padStart(2, '0');
-const slug = (project) => project.slug || project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-const hasLink = (url) => url && url !== '#';
+const categories = data.work;
+const countOf = (category) => (category.layout === 'web' ? data.projects.length : category.items.length);
 
-const Projects = () => {
-  const [active, setActive] = useState(0);
-  const [direction, setDirection] = useState(1);
-  const sectionRef = useRef(null);
-  const inView = useInView(sectionRef, { margin: '-30% 0px -30% 0px' });
-  const total = projectsData.length;
-  const project = projectsData[active];
-
-  const goTo = (index) => {
-    setDirection(index > active ? 1 : -1);
-    setActive((index + total) % total);
-  };
-  const next = () => { setDirection(1); setActive((i) => (i + 1) % total); };
-  const prev = () => { setDirection(-1); setActive((i) => (i - 1 + total) % total); };
-
-  // Arrow keys switch projects while the section is on screen.
+// Short motion clips play silently on loop while they are on screen.
+const LoopVideo = ({ item }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { margin: '100px' });
   useEffect(() => {
-    if (!inView) return;
-    const onKey = (e) => {
-      if (e.key === 'ArrowRight') next();
-      if (e.key === 'ArrowLeft') prev();
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  });
+    const video = ref.current;
+    if (!video) return;
+    if (inView) video.play().catch(() => {});
+    else video.pause();
+  }, [inView]);
+  return (
+    <video
+      ref={ref}
+      src={item.src}
+      poster={item.poster}
+      muted
+      loop
+      playsInline
+      preload="none"
+      className="w-full h-full object-cover"
+      style={{ aspectRatio: item.ratio }}
+    />
+  );
+};
+
+const WorkCard = ({ item, index, onOpen }) => {
+  const isVideo = item.type === 'video';
+  const cover = item.type === 'carousel' ? item.slides[0] : isVideo ? item.poster : item.src;
 
   return (
-    <section id="projects" ref={sectionRef} className="relative py-24 sm:py-32 scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
-          <SectionHeading index="02" label="Selected work" title="Featured" accent="projects." />
-          <p className="font-mono text-xs text-faint tabular-nums">
-            <span className="text-accent">{pad(active + 1)}</span> / {pad(total)}
-          </p>
-        </div>
+    <motion.figure
+      layout
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.45, delay: Math.min(index, 8) * 0.04, ease: [0.22, 1, 0.36, 1] }}
+      className="group mb-5 break-inside-avoid rounded-[1.5rem] border border-line bg-card/70 overflow-hidden hover:border-accent/50 transition-colors"
+    >
+      <button onClick={onOpen} className="relative block w-full text-left cursor-zoom-in" aria-label={`Open ${item.title}`}>
+        {isVideo && item.loop ? (
+          <LoopVideo item={item} />
+        ) : (
+          <img
+            src={cover}
+            alt={item.title}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-auto object-cover group-hover:scale-[1.03] transition-transform duration-700"
+            style={item.ratio ? { aspectRatio: item.ratio } : undefined}
+          />
+        )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
+        {isVideo && !item.loop && (
+          <span className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/25 transition-colors">
+            <span className="w-16 h-16 rounded-full bg-accent text-white flex items-center justify-center shadow-xl shadow-black/30 group-hover:scale-110 transition-transform">
+              <HiPlay size={26} className="translate-x-0.5" />
+            </span>
+          </span>
+        )}
+        {item.type === 'carousel' && (
+          <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 text-white text-[11px] backdrop-blur">
+            <HiSquare2Stack size={12} /> {item.slides.length}
+          </span>
+        )}
+        {item.duration && (
+          <span className="absolute bottom-3 right-3 px-2 py-0.5 rounded-md bg-black/60 text-white text-[11px] font-mono">{item.duration}</span>
+        )}
+      </button>
 
-          {/* Numbered list */}
-          <ol className="lg:col-span-4 flex lg:flex-col gap-2 lg:gap-0 overflow-x-auto lg:overflow-visible -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 snap-x lg:border-t lg:border-line">
-            {projectsData.map((p, i) => {
-              const isActive = i === active;
+      <figcaption className="p-4 sm:p-5 space-y-2">
+        <h3 className="font-display text-2xl leading-tight text-fg">{item.title}</h3>
+        {item.description && <p className="text-sm text-muted leading-relaxed">{item.description}</p>}
+        {item.tags && (
+          <div className="flex flex-wrap gap-1.5 pt-1">
+            {item.tags.map((tag) => (
+              <span key={tag} className="px-2.5 py-0.5 rounded-full border border-line text-[11px] text-muted">{tag}</span>
+            ))}
+          </div>
+        )}
+      </figcaption>
+    </motion.figure>
+  );
+};
+
+const Projects = () => {
+  const [activeId, setActiveId] = useState(categories[0].id);
+  const [open, setOpen] = useState(null); // index of the item shown in the lightbox
+  const category = categories.find((c) => c.id === activeId);
+
+  const selectCategory = (id) => {
+    setActiveId(id);
+    setOpen(null);
+  };
+
+  return (
+    <section id="projects" className="relative py-24 sm:py-32 scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <SectionHeading
+          index="02"
+          label="Selected work"
+          title="Our"
+          accent="work."
+          intro="Websites, graphics, logos, social content, motion and video, all made by the SaifurHub team."
+        />
+
+        {/* Category tabs */}
+        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto">
+          <div className="flex sm:flex-wrap gap-2 w-max sm:w-auto">
+            {categories.map((c) => {
+              const isActive = c.id === activeId;
               return (
-                <li key={p.id} className="snap-start shrink-0 lg:shrink lg:border-b lg:border-line">
-                  <button
-                    onClick={() => goTo(i)}
-                    className={`group relative w-full text-left flex items-center gap-4 px-4 lg:px-3 py-3 lg:py-5 rounded-full lg:rounded-none border lg:border-0 transition-colors ${
-                      isActive ? 'border-accent/50 bg-accent/10 lg:bg-transparent' : 'border-line'
-                    }`}
-                  >
-                    {isActive && (
-                      <motion.span
-                        layoutId="project-indicator"
-                        className="hidden lg:block absolute left-0 top-3 bottom-3 w-[2px] bg-accent rounded-full"
-                      />
-                    )}
-                    <span className={`font-mono text-xs ${isActive ? 'text-accent' : 'text-faint'}`}>{pad(i + 1)}</span>
-                    <span
-                      className={`font-display text-xl lg:text-3xl whitespace-nowrap transition-all ${
-                        isActive ? 'text-fg italic lg:translate-x-1' : 'text-muted group-hover:text-fg'
-                      }`}
-                    >
-                      {p.title}
-                    </span>
-                    <span className="hidden xl:block ml-auto label !text-[0.6rem] whitespace-nowrap">{p.category}</span>
-                  </button>
-                </li>
+                <button
+                  key={c.id}
+                  onClick={() => selectCategory(c.id)}
+                  className={`relative inline-flex items-center gap-2 h-11 px-4 rounded-full text-sm whitespace-nowrap border transition-colors ${
+                    isActive ? 'border-transparent text-white' : 'border-line text-muted hover:text-fg hover:border-faint'
+                  }`}
+                >
+                  {isActive && (
+                    <motion.span layoutId="work-tab" className="absolute inset-0 rounded-full bg-accent" transition={{ type: 'spring', stiffness: 380, damping: 32 }} />
+                  )}
+                  <Icon name={c.icon} size={14} className="relative" />
+                  <span className="relative">{c.title}</span>
+                  <span className={`relative font-mono text-[10px] ${isActive ? 'text-white/80' : 'text-faint'}`}>{countOf(c)}</span>
+                </button>
               );
             })}
-          </ol>
-
-          {/* Detail card */}
-          <div className="lg:col-span-8 relative">
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.article
-                key={project.id}
-                custom={direction}
-                initial={{ opacity: 0, x: direction * 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction * -40 }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.15}
-                onDragEnd={(_, info) => {
-                  if (info.offset.x < -80) next();
-                  else if (info.offset.x > 80) prev();
-                }}
-                className="relative rounded-[2rem] border border-line bg-card/80 overflow-hidden shadow-xl shadow-black/5 cursor-grab active:cursor-grabbing"
-              >
-                {/* Screenshot */}
-                <div className="relative aspect-[16/9] overflow-hidden border-b border-line group">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    draggable={false}
-                    className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card/70 via-transparent to-transparent" />
-                  <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-card/90 backdrop-blur text-xs text-fg border border-line">
-                    {project.category}
-                  </span>
-                </div>
-
-                <div className="relative p-6 sm:p-10 space-y-5">
-                  {/* Large faded number */}
-                  <span className="absolute right-6 sm:right-10 top-2 font-display italic text-[7rem] sm:text-[9rem] leading-none text-fg/[0.05] select-none pointer-events-none">
-                    {pad(active + 1)}
-                  </span>
-
-                  <p className="font-mono text-xs text-accent">/{slug(project)}</p>
-                  <h3 className="font-display text-4xl sm:text-5xl leading-none text-fg">{project.title}</h3>
-                  <p className="text-muted leading-relaxed max-w-xl">{project.description}</p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((t) => (
-                      <span key={t} className="px-3 py-1 rounded-full border border-line text-xs text-muted">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="pt-5 border-t border-line flex flex-wrap items-center justify-between gap-4">
-                    <div className="flex items-center gap-2">
-                      <button onClick={prev} aria-label="Previous project" className="w-10 h-10 rounded-full border border-line flex items-center justify-center text-muted hover:text-accent hover:border-accent/60 transition-colors">
-                        <HiArrowLeft />
-                      </button>
-                      <button onClick={next} aria-label="Next project" className="w-10 h-10 rounded-full border border-line flex items-center justify-center text-muted hover:text-accent hover:border-accent/60 transition-colors">
-                        <HiArrowRight />
-                      </button>
-                      <div className="hidden sm:flex items-center gap-1.5 ml-3">
-                        {projectsData.map((p, i) => (
-                          <button
-                            key={p.id}
-                            onClick={() => goTo(i)}
-                            aria-label={`Show ${p.title}`}
-                            className={`h-1.5 rounded-full transition-all ${i === active ? 'w-6 bg-accent' : 'w-1.5 bg-line hover:bg-faint'}`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      {hasLink(project.githubUrl) && (
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 h-10 px-4 rounded-full border border-line text-sm text-fg hover:border-accent/60 transition-colors"
-                        >
-                          <FaGithub /> Code
-                        </a>
-                      )}
-                      {hasLink(project.liveUrl) && (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group inline-flex items-center gap-2 h-10 px-5 rounded-full bg-fg text-bg text-sm font-semibold hover:bg-accent hover:text-white transition-colors"
-                        >
-                          Live site
-                          <HiArrowUpRight className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </motion.article>
-            </AnimatePresence>
-            <p className="mt-4 label !text-[0.6rem] text-center">Click a project · use ← → · or swipe</p>
           </div>
         </div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={category.id}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-8"
+          >
+            <p className="text-muted max-w-2xl">{category.intro}</p>
+
+            {category.layout === 'web' ? (
+              <WebProjects />
+            ) : (
+              <div className={`gap-5 ${category.columns === 2 ? 'columns-1 md:columns-2' : 'columns-1 sm:columns-2 lg:columns-3'}`}>
+                {category.items.map((item, i) => (
+                  <WorkCard key={item.title} item={item} index={i} onOpen={() => setOpen(i)} />
+                ))}
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
       </div>
+
+      {category.items && (
+        <Lightbox items={category.items} index={open} onChange={setOpen} onClose={() => setOpen(null)} />
+      )}
     </section>
   );
 };

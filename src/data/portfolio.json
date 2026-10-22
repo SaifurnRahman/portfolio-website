@@ -211,6 +211,280 @@
     }
   ],
 
+  "work": [
+    {
+      "id": "websites",
+      "title": "Websites",
+      "icon": "FaLaptopCode",
+      "layout": "web",
+      "intro": "Responsive websites and full-stack web apps, from booking platforms to job portals."
+    },
+    {
+      "id": "branding",
+      "title": "Logo & Branding",
+      "icon": "FaPenNib",
+      "columns": 2,
+      "intro": "Custom lettering logos for streetwear labels, plus the full SaifurHub brand identity.",
+      "items": [
+        {
+          "title": "Lettering Logo Collection",
+          "type": "image",
+          "src": "/work/branding/lettering-logos.webp",
+          "tags": ["Logo", "Lettering"],
+          "description": "Hand-drawn wordmarks for apparel and lifestyle brands."
+        },
+        {
+          "title": "Streetwear Brand Logos",
+          "type": "image",
+          "src": "/work/branding/streetwear-logos.webp",
+          "tags": ["Logo", "Streetwear"],
+          "description": "Motion, Novair, Mutate, Stay Form and more, each with its own voice."
+        },
+        {
+          "title": "SaifurHub Logo System",
+          "type": "image",
+          "src": "/work/branding/saifurhub-logo-system.webp",
+          "tags": ["Brand identity", "Logo system"],
+          "description": "Primary, stacked and icon versions in light, dark and orange."
+        },
+        {
+          "title": "SaifurHub LinkedIn Cover",
+          "type": "image",
+          "src": "/work/branding/saifurhub-linkedin-cover.webp",
+          "tags": ["Social banner"],
+          "description": "A clean cover that carries the brand onto LinkedIn."
+        }
+      ]
+    },
+    {
+      "id": "social-media",
+      "title": "Social Media",
+      "icon": "FaInstagram",
+      "intro": "A week of Instagram carousels and stories for SaifurHub: tips, breakdowns and offers in one consistent look.",
+      "items": [
+        {
+          "title": "7 Mistakes That Make Your Brand Look Cheap",
+          "type": "carousel",
+          "slides": ["/work/social/mistakes/01.webp", "/work/social/mistakes/02.webp", "/work/social/mistakes/03.webp", "/work/social/mistakes/04.webp", "/work/social/mistakes/05.webp", "/work/social/mistakes/06.webp", "/work/social/mistakes/07.webp", "/work/social/mistakes/08.webp", "/work/social/mistakes/09.webp"],
+          "description": "Educational carousel with one fix per slide.",
+          "tags": ["Carousel", "9 slides"]
+        },
+        {
+          "title": "Anatomy of a Tee That Sells",
+          "type": "carousel",
+          "slides": ["/work/social/anatomy-of-a-tee/01.webp", "/work/social/anatomy-of-a-tee/02.webp", "/work/social/anatomy-of-a-tee/03.webp", "/work/social/anatomy-of-a-tee/04.webp", "/work/social/anatomy-of-a-tee/05.webp", "/work/social/anatomy-of-a-tee/06.webp", "/work/social/anatomy-of-a-tee/07.webp"],
+          "description": "Design breakdown of the Midnight Drift tee.",
+          "tags": ["Carousel", "Breakdown"]
+        },
+        {
+          "title": "Your Instagram Page Is Not a Store",
+          "type": "carousel",
+          "slides": ["/work/social/page-not-a-store/01.webp", "/work/social/page-not-a-store/02.webp", "/work/social/page-not-a-store/03.webp", "/work/social/page-not-a-store/04.webp", "/work/social/page-not-a-store/05.webp", "/work/social/page-not-a-store/06.webp"],
+          "description": "Why growing brands need their own website.",
+          "tags": ["Carousel", "Web offer"]
+        },
+        {
+          "title": "Meet the Founder",
+          "type": "carousel",
+          "slides": ["/work/social/meet-the-founder/01.webp", "/work/social/meet-the-founder/02.webp", "/work/social/meet-the-founder/03.webp", "/work/social/meet-the-founder/04.webp"],
+          "description": "Introducing Saifur and how the studio works.",
+          "tags": ["Carousel", "Personal brand"]
+        },
+        {
+          "title": "Free Brand Review Week",
+          "type": "carousel",
+          "slides": ["/work/social/brand-review/01.webp", "/work/social/brand-review/02.webp", "/work/social/brand-review/03.webp", "/work/social/brand-review/04.webp", "/work/social/brand-review/05.webp"],
+          "description": "Lead-generation offer with a clear call to action.",
+          "tags": ["Carousel", "Offer"]
+        },
+        {
+          "title": "Daily Stories",
+          "type": "carousel",
+          "slides": ["/work/social/stories/01.webp", "/work/social/stories/02.webp", "/work/social/stories/03.webp", "/work/social/stories/04.webp", "/work/social/stories/05.webp", "/work/social/stories/06.webp", "/work/social/stories/07.webp"],
+          "description": "Seven story frames with polls and questions.",
+          "tags": ["Stories", "9:16"]
+        }
+      ]
+    },
+    {
+      "id": "motion",
+      "title": "Motion Graphics",
+      "icon": "FaFilm",
+      "intro": "Logo reveals and animated wordmarks, short clips made to open videos, reels and ads.",
+      "items": [
+        {
+          "title": "SaifurHub: Clean Build",
+          "type": "video",
+          "loop": true,
+          "src": "/work/motion/saifurhub-clean-build.mp4",
+          "poster": "/work/motion/saifurhub-clean-build.webp",
+          "ratio": "16/9",
+          "tags": ["Logo reveal"]
+        },
+        {
+          "title": "SaifurHub: Hub Connect",
+          "type": "video",
+          "loop": true,
+          "src": "/work/motion/saifurhub-hub-connect.mp4",
+          "poster": "/work/motion/saifurhub-hub-connect.webp",
+          "ratio": "16/9",
+          "tags": ["Logo reveal"]
+        },
+        {
+          "title": "SaifurHub: Kinetic Cut",
+          "type": "video",
+          "loop": true,
+          "src": "/work/motion/saifurhub-kinetic-cut.mp4",
+          "poster": "/work/motion/saifurhub-kinetic-cut.webp",
+          "ratio": "16/9",
+          "tags": ["Logo reveal", "Kinetic type"]
+        },
+        {
+          "title": "Mutate Co: Brush Draw",
+          "type": "video",
+          "loop": true,
+          "src": "/work/motion/mutateco-brush-draw.mp4",
+          "poster": "/work/motion/mutateco-brush-draw.webp",
+          "ratio": "16/9",
+          "tags": ["Logo animation"]
+        },
+        {
+          "title": "Mutate Co: Slice Reveal",
+          "type": "video",
+          "loop": true,
+          "src": "/work/motion/mutateco-slice-reveal.mp4",
+          "poster": "/work/motion/mutateco-slice-reveal.webp",
+          "ratio": "16/9",
+          "tags": ["Logo animation"]
+        },
+        {
+          "title": "Novair Co: Float Up",
+          "type": "video",
+          "loop": true,
+          "src": "/work/motion/novairco-float-up.mp4",
+          "poster": "/work/motion/novairco-float-up.webp",
+          "ratio": "16/9",
+          "tags": ["Logo animation"]
+        },
+        {
+          "title": "Novair Co: Neon",
+          "type": "video",
+          "loop": true,
+          "src": "/work/motion/novairco-neon.mp4",
+          "poster": "/work/motion/novairco-neon.webp",
+          "ratio": "16/9",
+          "tags": ["Logo animation", "Glow"]
+        },
+        {
+          "title": "Motion Co: Speed",
+          "type": "video",
+          "loop": true,
+          "src": "/work/motion/motionco-speed.mp4",
+          "poster": "/work/motion/motionco-speed.webp",
+          "ratio": "16/9",
+          "tags": ["Logo animation"]
+        },
+        {
+          "title": "Stay Laced: Thread",
+          "type": "video",
+          "loop": true,
+          "src": "/work/motion/staylaced-thread.mp4",
+          "poster": "/work/motion/staylaced-thread.webp",
+          "ratio": "16/9",
+          "tags": ["Logo animation"]
+        },
+        {
+          "title": "8 Logos, 1 Studio",
+          "type": "video",
+          "src": "/work/motion/eight-logos-reel.mp4",
+          "poster": "/work/motion/eight-logos-reel.webp",
+          "ratio": "9/16",
+          "duration": "0:14",
+          "description": "A reel showing eight logos in fourteen seconds.",
+          "tags": ["Reel", "Logo showcase"]
+        }
+      ]
+    },
+    {
+      "id": "video-editing",
+      "title": "Video Editing",
+      "icon": "FaVideo",
+      "intro": "Reels and promo videos with tight cuts, motion text and music. Press play to watch with sound.",
+      "items": [
+        {
+          "title": "SaifurHub Studio Reel",
+          "type": "video",
+          "src": "/work/video/saifurhub-studio-reel.mp4",
+          "poster": "/work/video/saifurhub-studio-reel.webp",
+          "ratio": "9/16",
+          "duration": "0:29",
+          "description": "Brand reel covering apparel, video and websites.",
+          "tags": ["Reel", "Brand"]
+        },
+        {
+          "title": "Clothing Brand Reel",
+          "type": "video",
+          "src": "/work/video/clothing-brand-reel.mp4",
+          "poster": "/work/video/clothing-brand-reel.webp",
+          "ratio": "9/16",
+          "duration": "0:18",
+          "description": "Fast promo for streetwear clients, cut to music.",
+          "tags": ["Reel", "Music"]
+        },
+        {
+          "title": "AI Productivity Explainer",
+          "type": "video",
+          "src": "/work/video/ai-productivity-reel.mp4",
+          "poster": "/work/video/ai-productivity-reel.webp",
+          "ratio": "9/16",
+          "duration": "0:48",
+          "description": "Animated explainer reel with kinetic text.",
+          "tags": ["Reel", "Explainer"]
+        },
+        {
+          "title": "Custom Website Promo",
+          "type": "video",
+          "src": "/work/video/custom-website-promo.mp4",
+          "poster": "/work/video/custom-website-promo.webp",
+          "ratio": "16/9",
+          "duration": "0:40",
+          "description": "Service video showing a store, dashboard and build process.",
+          "tags": ["Promo", "Web"]
+        },
+        {
+          "title": "MERN E-commerce Promo",
+          "type": "video",
+          "src": "/work/video/mern-ecommerce-promo.mp4",
+          "poster": "/work/video/mern-ecommerce-promo.webp",
+          "ratio": "16/9",
+          "duration": "0:40",
+          "description": "Walkthrough of a full-stack store from idea to launch.",
+          "tags": ["Promo", "Web"]
+        },
+        {
+          "title": "Streetwear Tee Promo",
+          "type": "video",
+          "src": "/work/video/streetwear-tee-promo.mp4",
+          "poster": "/work/video/streetwear-tee-promo.webp",
+          "ratio": "16/9",
+          "duration": "0:40",
+          "description": "Showcase of custom tee designs and what clients receive.",
+          "tags": ["Promo", "Apparel"]
+        },
+        {
+          "title": "Logo Design Promo",
+          "type": "video",
+          "src": "/work/video/logo-design-promo.mp4",
+          "poster": "/work/video/logo-design-promo.webp",
+          "ratio": "16/9",
+          "duration": "0:40",
+          "description": "Behind-the-design video for custom lettering logos.",
+          "tags": ["Promo", "Logo"]
+        }
+      ]
+    }
+  ],
+
   "skills": [
     { "name": "React.js", "category": "Frontend", "icon": "FaReact", "color": "text-cyan-400", "level": "Advanced" },
     { "name": "JavaScript (ES6+)", "category": "Frontend", "icon": "FaJs", "color": "text-yellow-400", "level": "Expert" },

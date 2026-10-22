@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import data from '../data/portfolio.json';
 import { Icon } from '../data/icons';
 import ThemeToggle from './ui/ThemeToggle';
+import logoIcon from '../assets/saifurhub-icon.webp';
 import LocalTime from './ui/LocalTime';
 
 const { studio, navLinks, socials, contact } = data;
@@ -48,9 +49,13 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
           {/* Brand */}
           <Link to="/" className="flex items-center gap-3 group" onClick={() => setIsOpen(false)}>
-            <span className="w-9 h-9 rounded-full bg-accent text-white flex items-center justify-center font-display text-xl leading-none group-hover:rotate-[-8deg] transition-transform">
-              {studio.brandName.charAt(0)}
-            </span>
+            <img
+              src={logoIcon}
+              alt=""
+              width="36"
+              height="36"
+              className="w-9 h-9 rounded-[10px] group-hover:rotate-[-8deg] transition-transform"
+            />
             <span className="font-display text-2xl tracking-tight text-fg">
               {studio.brandName}<em className="text-accent">{studio.brandSuffix}</em>
             </span>
