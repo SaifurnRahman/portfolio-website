@@ -140,6 +140,16 @@
 
   "projects": [
     {
+      "id": 8,
+      "title": "Northwell",
+      "category": "E-Commerce",
+      "description": "Streetwear store for oversized graphic tees and hoodies, with drops, collections, currency switching for the UK, US, Canada and Europe, and a smooth animated shopping experience.",
+      "image": "/work/web/northwell.webp",
+      "tech": ["React", "Tailwind CSS", "Motion", "Zustand"],
+      "liveUrl": "https://north-well.netlify.app/",
+      "githubUrl": "https://github.com/SaifurnRahman/Northwell"
+    },
+    {
       "id": 1,
       "title": "kobul-counter",
       "category": "Marrage tracking",
@@ -262,6 +272,20 @@
       "icon": "FaInstagram",
       "intro": "A week of Instagram carousels and stories for SaifurHub: tips, breakdowns and offers in one consistent look.",
       "items": [
+        {
+          "title": "Void × Kraken: Drop 04 Campaign",
+          "type": "carousel",
+          "slides": ["/work/social/void-kraken/01.webp", "/work/social/void-kraken/02.webp", "/work/social/void-kraken/03.webp", "/work/social/void-kraken/04.webp", "/work/social/void-kraken/05.webp"],
+          "description": "Full launch kit for a streetwear collab: seamless carousel, stories, fit check, two colourways and a feed planned as one system.",
+          "tags": ["Campaign", "Carousel", "Stories", "Feed"]
+        },
+        {
+          "title": "SaifurHub Social Banners",
+          "type": "carousel",
+          "slides": ["/work/social/banners/01.webp", "/work/social/banners/02.webp", "/work/social/banners/03.webp", "/work/social/banners/04.webp"],
+          "description": "Profile cover banners in dark, light and orange styles for LinkedIn, X and other platforms.",
+          "tags": ["Banners", "Brand"]
+        },
         {
           "title": "7 Mistakes That Make Your Brand Look Cheap",
           "type": "carousel",
@@ -392,16 +416,6 @@
           "poster": "/work/motion/staylaced-thread.webp",
           "ratio": "16/9",
           "tags": ["Logo animation"]
-        },
-        {
-          "title": "8 Logos, 1 Studio",
-          "type": "video",
-          "src": "/work/motion/eight-logos-reel.mp4",
-          "poster": "/work/motion/eight-logos-reel.webp",
-          "ratio": "9/16",
-          "duration": "0:14",
-          "description": "A reel showing eight logos in fourteen seconds.",
-          "tags": ["Reel", "Logo showcase"]
         }
       ]
     },
@@ -420,6 +434,26 @@
           "duration": "0:29",
           "description": "Brand reel covering apparel, video and websites.",
           "tags": ["Reel", "Brand"]
+        },
+        {
+          "title": "Paris Tee: Speed Design",
+          "type": "video",
+          "src": "/work/video/paris-tee-reel.mp4",
+          "poster": "/work/video/paris-tee-reel.webp",
+          "ratio": "9/16",
+          "duration": "0:20",
+          "description": "Speed-design reel showing a streetwear tee built step by step, from type to colour to mockup.",
+          "tags": ["Reel", "Speed design"]
+        },
+        {
+          "title": "8 Logos, 1 Studio",
+          "type": "video",
+          "src": "/work/motion/eight-logos-reel.mp4",
+          "poster": "/work/motion/eight-logos-reel.webp",
+          "ratio": "9/16",
+          "duration": "0:14",
+          "description": "A reel showing eight logos in fourteen seconds.",
+          "tags": ["Reel", "Logo showcase"]
         },
         {
           "title": "Clothing Brand Reel",
