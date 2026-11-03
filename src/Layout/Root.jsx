@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import { Outlet, ScrollRestoration } from 'react-router';
 import Footer from '../components/Footer';
 import BackgroundAnimation from '../utils/BackgroundAnimation';
+import FloatingContact from '../components/ui/FloatingContact';
 
 const Root = () => {
   return (
@@ -17,6 +18,7 @@ const Root = () => {
           <Outlet />
         </main>
         <Footer />
+        <FloatingContact />
         <ScrollRestoration />
       </div>
     </div>

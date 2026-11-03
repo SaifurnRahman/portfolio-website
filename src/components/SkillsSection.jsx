@@ -19,7 +19,7 @@ const SkillsSection = () => {
     category === 'All' ? skillsData.length : skillsData.filter((s) => s.category === category).length;
 
   return (
-    <section id="skills" className="relative py-24 sm:py-32 scroll-mt-20">
+    <section id="skills" className="relative py-16 sm:py-32 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <SectionHeading
           index="03"
@@ -64,15 +64,15 @@ const SkillsSection = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.92 }}
                   transition={{ duration: 0.35, delay: idx * 0.02 }}
-                  className="group relative rounded-2xl border border-line bg-card/70 p-4 sm:p-5 hover:border-accent/50 hover:-translate-y-1 transition-[border-color,transform] duration-300"
+                  className="group relative rounded-2xl border border-line bg-card/70 p-3.5 sm:p-5 hover:border-accent/50 hover:-translate-y-1 transition-[border-color,transform] duration-300"
                 >
                   <div className="flex items-start justify-between gap-3">
-                    <span className="w-11 h-11 rounded-xl bg-bg-soft border border-line flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <span className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-bg-soft border border-line flex items-center justify-center group-hover:scale-110 transition-transform">
                       <Icon name={skill.icon} className={skill.color} size={22} />
                     </span>
-                    <span className="label !text-[0.55rem] text-right">{skill.category}</span>
+                    <span className="hidden sm:block label !text-[0.55rem] text-right">{skill.category}</span>
                   </div>
-                  <h4 className="mt-4 text-sm sm:text-base font-semibold text-fg">{skill.name}</h4>
+                  <h4 className="mt-3 sm:mt-4 text-sm sm:text-base font-semibold text-fg">{skill.name}</h4>
                   <div className="mt-3 flex items-center justify-between gap-2">
                     <span className="text-xs text-muted">{skill.level}</span>
                     <span className="flex gap-1" title={skill.level}>

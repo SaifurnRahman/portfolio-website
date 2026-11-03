@@ -14,6 +14,7 @@ const WebProjects = () => {
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState(1);
   const sectionRef = useRef(null);
+  const listRef = useRef(null);
   const inView = useInView(sectionRef, { margin: '-30% 0px -30% 0px' });
   const total = projectsData.length;
   const project = projectsData[active];
@@ -24,6 +25,14 @@ const WebProjects = () => {
   };
   const next = () => { setDirection(1); setActive((i) => (i + 1) % total); };
   const prev = () => { setDirection(-1); setActive((i) => (i - 1 + total) % total); };
+
+  // On phones the list is a swipe row: keep the active project centred in it.
+  useEffect(() => {
+    const list = listRef.current;
+    const item = list?.children[active];
+    if (!item || list.scrollWidth <= list.clientWidth) return;
+    list.scrollTo({ left: item.offsetLeft - (list.clientWidth - item.offsetWidth) / 2, behavior: 'smooth' });
+  }, [active]);
 
   // Arrow keys switch projects while the section is on screen.
   useEffect(() => {
@@ -44,7 +53,7 @@ const WebProjects = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
 
         {/* Numbered list */}
-        <ol className="lg:col-span-4 flex lg:flex-col gap-2 lg:gap-0 overflow-x-auto lg:overflow-visible -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 snap-x lg:border-t lg:border-line">
+        <ol ref={listRef} className="lg:col-span-4 flex lg:flex-col gap-2 lg:gap-0 overflow-x-auto no-scrollbar lg:overflow-visible max-lg:[mask-image:linear-gradient(to_right,#000_80%,transparent)] -mx-4 px-4 lg:mx-0 lg:px-0 snap-x lg:border-t lg:border-line">
           {projectsData.map((p, i) => {
             const isActive = i === active;
             return (
@@ -174,7 +183,10 @@ const WebProjects = () => {
               </div>
             </motion.article>
           </AnimatePresence>
-          <p className="mt-4 label !text-[0.6rem] text-center">Click a project · use ← → · or swipe</p>
+          <p className="mt-4 label !text-[0.6rem] text-center">
+          <span className="lg:hidden">Tap a project or swipe the card</span>
+          <span className="hidden lg:inline">Click a project · use ← → · or swipe</span>
+        </p>
         </div>
       </div>
     </div>

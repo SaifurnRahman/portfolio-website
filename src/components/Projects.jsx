@@ -105,7 +105,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="relative py-24 sm:py-32 scroll-mt-20">
+    <section id="projects" className="relative py-16 sm:py-32 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <SectionHeading
           index="02"
@@ -116,8 +116,8 @@ const Projects = () => {
         />
 
         {/* Category tabs */}
-        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto">
-          <div className="flex sm:flex-wrap gap-2 w-max sm:w-auto">
+        <div>
+          <div className="flex flex-wrap gap-2">
             {categories.map((c) => {
               const isActive = c.id === activeId;
               return (

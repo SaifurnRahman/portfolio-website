@@ -12,7 +12,7 @@ const timeline = [
 
 const Journey = ({ index = '06' }) => {
   return (
-    <section id="journey" className="relative py-24 sm:py-32 scroll-mt-20">
+    <section id="journey" className="relative py-16 sm:py-32 scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         <SectionHeading
           index={index}

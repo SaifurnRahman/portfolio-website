@@ -27,7 +27,7 @@ const TestimonialsSection = () => {
   const long = current.content.length > 260;
 
   return (
-    <section className="relative py-24 sm:py-32">
+    <section className="relative py-16 sm:py-32">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <SectionHeading index="04" label="Kind words" title="Trusted by" accent="clients." align="center" />
 
@@ -50,7 +50,7 @@ const TestimonialsSection = () => {
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="space-y-8"
               >
-                <p className={`font-display text-fg leading-snug ${long ? 'text-2xl sm:text-3xl' : 'text-3xl sm:text-4xl'}`}>
+                <p className={`font-display text-fg leading-snug ${long ? 'text-xl sm:text-3xl' : 'text-2xl sm:text-4xl'}`}>
                   {current.content}
                 </p>
                 <footer className="flex flex-wrap items-center gap-4">

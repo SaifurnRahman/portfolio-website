@@ -8,7 +8,7 @@ const services = data.services;
 
 const WhatIDo = () => {
   return (
-    <section id="services" className="relative py-24 sm:py-32 scroll-mt-20">
+    <section id="services" className="relative py-16 sm:py-32 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-4 lg:sticky lg:top-32 self-start">
           <SectionHeading

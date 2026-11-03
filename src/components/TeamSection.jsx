@@ -37,7 +37,7 @@ const MemberAvatar = ({ member }) => (
 
 const TeamSection = ({ index = '05', showPageLink = false }) => {
   return (
-    <section id="team" className="relative py-24 sm:py-32 scroll-mt-20">
+    <section id="team" className="relative py-16 sm:py-32 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
           <SectionHeading
@@ -109,7 +109,7 @@ const TeamSection = ({ index = '05', showPageLink = false }) => {
         </motion.article>
 
         {/* Team member profiles */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory no-scrollbar">
           {team.map((member, i) => (
             <motion.article
               key={member.role}
@@ -117,7 +117,7 @@ const TeamSection = ({ index = '05', showPageLink = false }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.6, delay: i * 0.08, ease }}
-              className="group rounded-[1.75rem] border border-line bg-card/70 overflow-hidden hover:border-accent/50 hover:-translate-y-1 transition-[border-color,transform] duration-300"
+              className="group shrink-0 w-[82%] sm:w-auto snap-center rounded-[1.75rem] border border-line bg-card/70 overflow-hidden hover:border-accent/50 hover:-translate-y-1 transition-[border-color,transform] duration-300"
             >
               {/* Profile header */}
               <div className="relative h-44 flex items-center justify-center bg-gradient-to-b from-bg-soft to-transparent">
