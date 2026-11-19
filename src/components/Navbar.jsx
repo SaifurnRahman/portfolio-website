@@ -6,6 +6,7 @@ import { Icon } from '../data/icons';
 import ThemeToggle from './ui/ThemeToggle';
 import logoIcon from '../assets/saifurhub-icon.webp';
 import LocalTime from './ui/LocalTime';
+import Magnetic from './ui/Magnetic';
 
 const { studio, navLinks, socials, contact } = data;
 
@@ -76,12 +77,14 @@ const Navbar = () => {
 
           <div className="flex items-center gap-2 sm:gap-3">
             <ThemeToggle />
-            <Link
-              to="/contactSection"
-              className="hidden sm:inline-flex items-center px-5 h-10 rounded-full bg-fg text-bg text-sm font-semibold hover:bg-accent hover:text-white transition-colors"
-            >
-              Let's talk
-            </Link>
+            <Magnetic>
+              <Link
+                to="/contactSection"
+                className="hidden sm:inline-flex items-center px-5 h-10 rounded-full bg-fg text-bg text-sm font-semibold hover:bg-accent hover:text-white transition-colors"
+              >
+                Let's talk
+              </Link>
+            </Magnetic>
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-expanded={isOpen}

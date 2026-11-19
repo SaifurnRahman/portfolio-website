@@ -4,6 +4,7 @@ import { Outlet, ScrollRestoration } from 'react-router';
 import Footer from '../components/Footer';
 import BackgroundAnimation from '../utils/BackgroundAnimation';
 import FloatingContact from '../components/ui/FloatingContact';
+import CustomCursor from '../components/ui/CustomCursor';
 
 const Root = () => {
   return (
@@ -19,6 +20,7 @@ const Root = () => {
         </main>
         <Footer />
         <FloatingContact />
+        <CustomCursor />
         <ScrollRestoration />
       </div>
     </div>

@@ -6,6 +6,7 @@ import data from '../data/portfolio.json';
 import { Icon } from '../data/icons';
 import { NavLink } from './Navbar';
 import LocalTime from './ui/LocalTime';
+import Magnetic from './ui/Magnetic';
 
 const { studio, contact, socials, navLinks } = data;
 
@@ -27,13 +28,15 @@ const Footer = () => {
           <h2 className="font-display text-5xl sm:text-7xl leading-[0.95] tracking-tight text-fg max-w-3xl">
             Let's build something <em className="text-accent">worth remembering.</em>
           </h2>
-          <Link
-            to="/contactSection"
-            className="group shrink-0 inline-flex items-center gap-3 h-14 px-7 rounded-full bg-accent text-white font-semibold shadow-lg shadow-accent/25 self-start lg:self-auto"
-          >
-            Start a project
-            <HiArrowUpRight className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </Link>
+          <Magnetic className="shrink-0 self-start lg:self-auto">
+            <Link
+              to="/contactSection"
+              className="group shrink-0 inline-flex items-center gap-3 h-14 px-7 rounded-full bg-accent text-white font-semibold shadow-lg shadow-accent/25 self-start lg:self-auto"
+            >
+              Start a project
+              <HiArrowUpRight className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </Link>
+          </Magnetic>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 pt-10 border-t border-line">

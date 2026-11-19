@@ -105,7 +105,7 @@ const WebProjects = () => {
               className="relative rounded-[2rem] border border-line bg-card/80 overflow-hidden shadow-xl shadow-black/5 cursor-grab active:cursor-grabbing"
             >
               {/* Screenshot */}
-              <div className="relative aspect-[16/9] overflow-hidden border-b border-line group">
+              <div data-cursor="Drag" className="relative aspect-[16/9] overflow-hidden border-b border-line group">
                 <img
                   src={project.image}
                   alt={project.title}

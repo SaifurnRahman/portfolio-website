@@ -5,6 +5,8 @@ import Projects from '../components/Projects';
 import TeamSection from '../components/TeamSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import SkillsSection from '../components/SkillsSection';
+import PricingSection from '../components/PricingSection';
+import FaqSection from '../components/FaqSection';
 
 const Home = () => {
     return (
@@ -16,7 +18,9 @@ const Home = () => {
             <SkillsSection></SkillsSection>
             <TestimonialsSection></TestimonialsSection>
         
-            <TeamSection showPageLink />
+            <PricingSection index="05" />
+            <TeamSection index="06" showPageLink />
+            <FaqSection index="07" />
             
         </div>
     );

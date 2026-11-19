@@ -69,6 +69,7 @@
     { "name": "About", "href": "/aboutSection" },
     { "name": "Services", "href": "/#services" },
     { "name": "Projects", "href": "/#projects" },
+    { "name": "Pricing", "href": "/#pricing" },
     { "name": "Team", "href": "/team" },
     { "name": "Contact", "href": "/contactSection" }
   ],
@@ -135,6 +136,65 @@
       "title": "Animation",
       "description": "Animated social posts, ads and website animations, taken from idea and storyboard to the final render.",
       "tags": ["Social media", "Ads", "Web"]
+    }
+  ],
+
+  "pricing": {
+    "currency": "USD",
+    "note": "Prices are a starting point. Every project begins with a free call so we can match the package to your goals.",
+    "plans": [
+      {
+        "name": "Start",
+        "price": 99,
+        "period": "one-time",
+        "tagline": "For new brands that need a strong identity.",
+        "features": ["Logo & brand identity", "Colour & font system", "Social media kit (5 templates)", "2 revision rounds", "Source files included"],
+        "cta": "Start my brand"
+      },
+      {
+        "name": "Grow",
+        "price": 299,
+        "period": "per month",
+        "popular": true,
+        "tagline": "For brands ready to post and sell every week.",
+        "features": ["Everything in Start", "5 streetwear designs", "4 edited reels", "8 Instagram post designs", "Priority WhatsApp support"],
+        "cta": "Grow my brand"
+      },
+      {
+        "name": "Launch",
+        "price": 500,
+        "period": "one-time",
+        "tagline": "For brands launching a full online store.",
+        "features": ["Everything in Grow (first month)", "E-commerce website", "Product pages & checkout", "Launch content plan", "30 days of support"],
+        "cta": "Launch my brand"
+      }
+    ]
+  },
+
+  "faq": [
+    {
+      "q": "How long does a logo take?",
+      "a": "First concepts are usually ready in 3–5 days, then 1–2 days for each revision round. Need it sooner? Ask about rush delivery."
+    },
+    {
+      "q": "Do you do revisions?",
+      "a": "Yes. Every package includes revision rounds: 2 on Start, 3 on Grow and Launch. Small tweaks after delivery are free for 7 days."
+    },
+    {
+      "q": "How do I pay?",
+      "a": "50% upfront to book your slot and 50% on delivery. You can pay through Fiverr or Upwork for buyer protection, or directly by bank transfer, PayPal or Wise."
+    },
+    {
+      "q": "How long does a website take?",
+      "a": "A landing page takes about one week. A full e-commerce store takes 3–4 weeks, depending on the number of pages and features."
+    },
+    {
+      "q": "Do you work with clients outside Bangladesh?",
+      "a": "Yes, most of our clients are in the US, UK, Canada and Europe. We work across time zones over WhatsApp, email and video calls."
+    },
+    {
+      "q": "What files will I get?",
+      "a": "Everything you need to print and post: source files (AI, PSD, SVG), 300 DPI PNGs and MP4 videos in the sizes you need, with full commercial rights."
     }
   ],
 

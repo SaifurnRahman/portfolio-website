@@ -48,7 +48,7 @@ const WorkCard = ({ item, index, onOpen }) => {
       transition={{ duration: 0.45, delay: Math.min(index, 8) * 0.04, ease: [0.22, 1, 0.36, 1] }}
       className="group mb-5 break-inside-avoid rounded-[1.5rem] border border-line bg-card/70 overflow-hidden hover:border-accent/50 transition-colors"
     >
-      <button onClick={onOpen} className="relative block w-full text-left cursor-zoom-in" aria-label={`Open ${item.title}`}>
+      <button onClick={onOpen} data-cursor={isVideo && !item.loop ? 'Play' : 'View'} className="relative block w-full text-left cursor-zoom-in" aria-label={`Open ${item.title}`}>
         {isVideo && item.loop ? (
           <LoopVideo item={item} />
         ) : (

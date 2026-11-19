@@ -6,6 +6,7 @@ import founderImage from '../assets/profile.webp';
 import data from '../data/portfolio.json';
 import { Icon } from '../data/icons';
 import LocalTime from './ui/LocalTime';
+import Magnetic from './ui/Magnetic';
 
 const { studio, founder, socials } = data;
 const ease = [0.22, 1, 0.36, 1];
@@ -83,20 +84,24 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.35, ease }}
             className="flex flex-wrap items-center gap-3"
           >
-            <a
-              href="#projects"
-              className="group inline-flex items-center gap-2 h-12 px-6 rounded-full bg-accent text-white text-sm font-semibold shadow-lg shadow-accent/25 hover:shadow-accent/40 transition-shadow"
-            >
-              See our work
-              <HiArrowDown className="group-hover:translate-y-0.5 transition-transform" />
-            </a>
-            <Link
-              to="/team"
-              className="group inline-flex items-center gap-2 h-12 px-6 rounded-full border border-line text-sm font-semibold text-fg hover:border-accent/60 transition-colors"
-            >
-              Meet the team
-              <HiArrowRight className="group-hover:translate-x-0.5 transition-transform" />
-            </Link>
+            <Magnetic>
+              <a
+                href="#projects"
+                className="group inline-flex items-center gap-2 h-12 px-6 rounded-full bg-accent text-white text-sm font-semibold shadow-lg shadow-accent/25 hover:shadow-accent/40 transition-shadow"
+              >
+                See our work
+                <HiArrowDown className="group-hover:translate-y-0.5 transition-transform" />
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <Link
+                to="/team"
+                className="group inline-flex items-center gap-2 h-12 px-6 rounded-full border border-line text-sm font-semibold text-fg hover:border-accent/60 transition-colors"
+              >
+                Meet the team
+                <HiArrowRight className="group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+            </Magnetic>
           </motion.div>
 
           <motion.div

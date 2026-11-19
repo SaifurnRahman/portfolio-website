@@ -76,6 +76,14 @@
   color: var(--faint);
 }
 
+/* The custom cursor shows a label over these, so hide the system cursor there. */
+@media (hover: hover) and (pointer: fine) {
+  [data-cursor],
+  [data-cursor] * {
+    cursor: none !important;
+  }
+}
+
 /* Swipeable rows: keep touch scrolling but hide the scrollbar. */
 @utility no-scrollbar {
   scrollbar-width: none;
