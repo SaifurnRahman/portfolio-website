@@ -297,18 +297,39 @@
       "intro": "Custom lettering logos for streetwear labels, plus the full SaifurHub brand identity.",
       "items": [
         {
-          "title": "Lettering Logo Collection",
-          "type": "image",
-          "src": "/work/branding/lettering-logos.webp",
-          "tags": ["Logo", "Lettering"],
-          "description": "Hand-drawn wordmarks for apparel and lifestyle brands."
+          "title": "Motion Co. Brand Identity",
+          "type": "carousel",
+          "slides": [
+            "/work/branding/motion-co/01.jpg", "/work/branding/motion-co/02.jpg", "/work/branding/motion-co/03.jpg",
+            "/work/branding/motion-co/04.jpg", "/work/branding/motion-co/05.jpg", "/work/branding/motion-co/06.jpg",
+            "/work/branding/motion-co/07.jpg", "/work/branding/motion-co/08.jpg", "/work/branding/motion-co/09.jpg",
+            "/work/branding/motion-co/10.jpg", "/work/branding/motion-co/11.jpg", "/work/branding/motion-co/12.jpg",
+            "/work/branding/motion-co/13.jpg", "/work/branding/motion-co/14.jpg", "/work/branding/motion-co/15.jpg"
+          ],
+          "tags": ["Logo", "Lettering", "Brand identity", "Streetwear"],
+          "description": "A 70s-inspired hand-lettered wordmark for a streetwear label: primary and outlined wordmarks, monogram, woven label, colour palette, and apparel, packaging and billboard mockups."
         },
         {
-          "title": "Streetwear Brand Logos",
-          "type": "image",
-          "src": "/work/branding/streetwear-logos.webp",
-          "tags": ["Logo", "Streetwear"],
-          "description": "Motion, Novair, Mutate, Stay Form and more, each with its own voice."
+          "title": "Street Dreams Graffiti Identity",
+          "type": "carousel",
+          "slides": [
+            "/work/branding/street-dreams/01.jpg", "/work/branding/street-dreams/02.jpg", "/work/branding/street-dreams/03.jpg",
+            "/work/branding/street-dreams/04.jpg", "/work/branding/street-dreams/05.jpg", "/work/branding/street-dreams/06.jpg",
+            "/work/branding/street-dreams/07.jpg", "/work/branding/street-dreams/08.jpg", "/work/branding/street-dreams/09.jpg",
+            "/work/branding/street-dreams/10.jpg"
+          ],
+          "tags": ["Logo", "Graffiti lettering", "Brand identity", "Merch"],
+          "description": "Graffiti lettering with a crown, arrows and paint drips, carried onto hoodies, tees, skate decks, patches, stickers, a mural and packaging."
+        },
+        {
+          "title": "Digital Angel Streetwear Brand",
+          "type": "carousel",
+          "slides": [
+            "/work/branding/digital-angel/01.jpg", "/work/branding/digital-angel/02.jpg", "/work/branding/digital-angel/03.jpg",
+            "/work/branding/digital-angel/04.jpg", "/work/branding/digital-angel/05.jpg"
+          ],
+          "tags": ["Logo", "Brand identity", "Merch", "Packaging"],
+          "description": "A chrome, Y2K-style winged logo built into a full streetwear brand: brand guide, merch collection, woven labels, unboxing and a poster launch campaign."
         },
         {
           "title": "SaifurHub Logo System",
